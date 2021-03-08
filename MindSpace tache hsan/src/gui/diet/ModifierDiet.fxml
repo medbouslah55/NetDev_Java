@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.diet.ModifierDietController">
+   <children>
+      <ScrollPane prefHeight="480.0" prefWidth="680.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="660.0" prefWidth="668.0">
+               <children>
+                  <Label layoutX="15.0" layoutY="14.0" prefHeight="29.0" prefWidth="123.0" text="Modifer Diet:" underline="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="45.0" prefHeight="15.0" prefWidth="262.0" text="Completer le formulaire pour modifier un Aliment" textFill="RED">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="combo_cat" layoutX="177.0" layoutY="177.0" prefHeight="37.0" prefWidth="287.0" promptText="Catégorie:" />
+                  <TextField fx:id="tfNom" layoutX="177.0" layoutY="240.0" prefHeight="38.0" prefWidth="289.0" promptText="Nom:" />
+                  <TextField fx:id="tfCalories" layoutX="177.0" layoutY="299.0" prefHeight="38.0" prefWidth="289.0" promptText="Calories:" />
+                  <ComboBox fx:id="comboQuantite" layoutX="178.0" layoutY="358.0" prefHeight="37.0" prefWidth="287.0" promptText="Quantité en Kg:" />
+                  <Line endX="188.0" layoutX="277.0" layoutY="156.0" startX="-100.0" />
+                  <Line endX="188.0" layoutX="277.0" layoutY="424.0" startX="-100.0" />
+                  <ImageView fx:id="imgButton" fitHeight="97.0" fitWidth="94.0" layoutX="178.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/images.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="340.0" layoutY="459.0" prefHeight="33.0" prefWidth="123.0" text="Upload Image">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="img" layoutX="345.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#addImage" styleClass="btn" text="Choisir photo" />
+                  <Button fx:id="btnModifer" layoutX="260.0" layoutY="599.0" mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="Modifier" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="combo_id" layoutX="179.0" layoutY="95.0" prefHeight="37.0" prefWidth="287.0" promptText="Id:" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
