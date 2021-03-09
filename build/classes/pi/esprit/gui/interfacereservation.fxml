@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pi.esprit.gui.ReservationinterfaceController">
+   <children>
+      <TableView fx:id="tvreservations" layoutX="32.0" layoutY="161.0" prefHeight="200.0" prefWidth="396.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);">
+         <columns>
+            <TableColumn fx:id="collcin" prefWidth="115.0" sortable="false" text="Cin" />
+            <TableColumn fx:id="colldate" prefWidth="86.0" sortable="false" text="Date" />
+            <TableColumn fx:id="collnbrplace" prefWidth="152.0" sortable="false" text="Nombre de place" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnajouter" layoutX="122.0" layoutY="410.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="43.0" prefWidth="92.0" style="-fx-background-color: #D16BA5; -fx-background-radius: 1em;" text="Ajouter" />
+      <Button fx:id="btnmodifier" layoutX="309.0" layoutY="410.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="43.0" prefWidth="92.0" style="-fx-background-color: #D16BA5; -fx-background-radius: 1em;" text="Modifier" />
+      <Button fx:id="btnsupprimer" layoutX="462.0" layoutY="410.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="43.0" prefWidth="100.0" style="-fx-background-color: #D16BA5; -fx-background-radius: 1em;" text="Supprimer" />
+      <Button fx:id="tftridate" layoutX="350.0" layoutY="102.0" mnemonicParsing="false" onAction="#ButtonAction" style="-fx-background-color: #D16BA5; -fx-background-radius: 1em;" text="Trie Date" />
+      <Button fx:id="btnactualiser" layoutX="197.0" layoutY="102.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #D16BA5; -fx-background-radius: 1em;">
+         <graphic>
+            <MaterialDesignIconView glyphName="REFRESH" size="15" />
+         </graphic>
+      </Button>
+      <TextField fx:id="tfrecherche" layoutX="35.0" layoutY="102.0" onAction="#ButtonAction" promptText="Recherche" style="-fx-background-radius: 1em;" />
+      <Button fx:id="btnpdf" layoutX="272.0" layoutY="102.0" mnemonicParsing="false" onAction="#ButtonAction" style="-fx-background-color: #D16BA5; -fx-background-radius: 1em;" text="PDF" />
+      <TextField fx:id="tfnbrplace" layoutX="475.0" layoutY="314.0" prefHeight="25.0" prefWidth="203.0" promptText="Entrer le nombre de place a reserver" style="-fx-background-radius: 1em;" />
+      <DatePicker fx:id="tfdate" layoutX="475.0" layoutY="241.0" promptText="Exemple : 2021-10-30" style="-fx-background-radius: 1em;" />
+      <TextField fx:id="tfcin" layoutX="475.0" layoutY="164.0" promptText="Entrer votre Cin" style="-fx-background-radius: 1em;" />
+   </children>
+</AnchorPane>
