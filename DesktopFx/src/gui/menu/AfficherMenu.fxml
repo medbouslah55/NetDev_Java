@@ -33,16 +33,18 @@
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Button>
-            <TextField fx:id="filterField" layoutX="190.0" layoutY="18.0" prefHeight="31.0" prefWidth="330.0" />
+            <TextField fx:id="filterField" layoutX="190.0" layoutY="18.0" prefHeight="31.0" prefWidth="330.0" style="-fx-background-radius: 30px;" />
             <Button fx:id="btnModif" layoutX="98.0" layoutY="430.0" onAction="#modifier" prefHeight="39.0" prefWidth="155.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="Modifier" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="71.0" layoutY="18.0" mnemonicParsing="false" onAction="#recherche" text="Rechercher :" />
-            <Button fx:id="pdf" layoutX="572.0" layoutY="18.0" mnemonicParsing="false" text="PDF" />
+            <Button layoutX="17.0" layoutY="18.0" mnemonicParsing="false" onAction="#recherche" prefHeight="31.0" prefWidth="155.0" style="-fx-background-radius: 30px;" text="Rechercher :" />
+            <Button fx:id="pdf" layoutX="555.0" layoutY="18.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-radius: 30px;" text="PDF" />
             <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="114.0" layoutY="456.0" size="15" />
             <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="452.0" layoutY="456.0" size="15" />
+            <FontAwesomeIconView fill="#000dff" glyphName="SEARCH" layoutX="29.0" layoutY="37.0" />
+            <FontAwesomeIconView fill="RED" glyphName="FILE_PDF_ALT" layoutX="565.0" layoutY="38.0" />
          </children>
       </Pane>
    </children>

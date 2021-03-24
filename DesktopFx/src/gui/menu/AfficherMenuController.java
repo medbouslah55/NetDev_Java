@@ -201,7 +201,7 @@ public class AfficherMenuController implements Initializable {
         FilteredList<Menu> filteredData = new FilteredList<>(list, b -> true);
         // 2. Set the filter Predicate whenever the filter changes.
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(cat_diet -> {
+            filteredData.setPredicate(menu -> {
                 // If filter text is empty, display all persons.
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
@@ -210,9 +210,9 @@ public class AfficherMenuController implements Initializable {
                 // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (cat_diet.getDescirption().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                if (menu.getDescirption().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches first name.
-                } else if (String.valueOf(cat_diet.getTotal_calories()).indexOf(lowerCaseFilter) != -1) {
+                } else if (String.valueOf(menu.getTotal_calories()).indexOf(lowerCaseFilter) != -1) {
                     return true;
                 } else {
                     return false; // Does not match.
