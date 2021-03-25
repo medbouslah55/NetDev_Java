@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Integration.jnlp">
+  <information>
+    <title>Integration</title>
+    <vendor>trabe</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Integration.jar" size="115780" download="eager" />
+    <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
+    <jar href="lib\commons-codec-1.4.jar" size="58160" download="eager" />
+    <jar href="lib\commons-lang3-3.7.jar" size="499634" download="eager" />
+    <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\fontbox-2.0.23.jar" size="1563961" download="eager" />
+    <jar href="lib\html2pdf-3.0.0.jar" size="3112892" download="eager" />
+    <jar href="lib\itextpdf-5.1.0.jar" size="1614453" download="eager" />
+    <jar href="lib\jfoenix-1.0.0.jar" size="2186636" download="eager" />
+    <jar href="lib\kernel-7.1.11.jar" size="1185161" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\pdfbox-2.0.23.jar" size="2739013" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Integration" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="tests.MainProg"  name="Integration" />
+  <update check="always"/>
+</jnlp>
