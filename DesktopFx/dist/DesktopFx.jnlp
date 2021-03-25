@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DesktopFx.jar" size="68314" download="eager" />
+    <jar href="DesktopFx.jar" size="68376" download="eager" />
     <jar href="lib/TrayNotification.jar" size="41019" download="eager" />
     <jar href="lib/commons-codec-1.4.jar" size="58160" download="eager" />
     <jar href="lib/mysql-connector-java-5.1.23-bin.jar" size="834091" download="eager" />

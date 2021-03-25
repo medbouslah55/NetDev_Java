@@ -27,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.apache.commons.codec.digest.DigestUtils;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
@@ -105,7 +106,8 @@ public class RecuperePwdMembreController implements Initializable {
     
               if (cf == code) {
                    System.out.println("dkhal");
-               String nvmdp=tf_nv_pwd.getText();
+               //String nvmdp=tf_nv_pwd.getText();
+               String nvmdp=DigestUtils.shaHex(tf_nv_pwd.getText());
                String requete="UPDATE membre SET password='"+nvmdp+"' WHERE cin = '"+tf_cin_recu_pwd.getText()+"'";
                   PreparedStatement pst = 
                     new MyConnection().cn.prepareStatement(requete);
