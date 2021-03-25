@@ -111,7 +111,7 @@ public class StatMembreController implements Initializable {
         piechartdata = FXCollections.observableArrayList();
         String dbUsername = "root";
         String dbPassword = "root";
-        String dbURL = "jdbc:mysql://localhost:8889/mindspace1";
+        String dbURL = "jdbc:mysql://localhost:8889/bdpidev";
         
   
         

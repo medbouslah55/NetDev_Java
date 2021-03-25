@@ -7,6 +7,7 @@ package edu.maindspace.entities;
 
 import java.sql.Date;
 import java.util.Comparator;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -65,7 +66,8 @@ public class Membre extends User implements Comparator<Membre>{
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        
+        this.password = DigestUtils.shaHex(password);
     }
 
     public int getTelephone() {

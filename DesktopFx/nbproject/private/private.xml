@@ -3,13 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/LoginController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/AfficherCoachAdminController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/services/CoachServices.java</file>
-            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/InscriptionMembreController.java</file>
-            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/RecuperePwdMembre.fxml</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/AjouterCoachAdminController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/MenuBackendController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/tools/MyConnection.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/entities/User.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/entities/Membre.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/RecuperePwdMembreController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/services/MembreServices.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/LoginController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/StatMembreController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/InscriptionMembreController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/AfficherMemebreAdminController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/RecuperePwdMembre.fxml</file>
         </group>
     </open-files>
 </project-private>
