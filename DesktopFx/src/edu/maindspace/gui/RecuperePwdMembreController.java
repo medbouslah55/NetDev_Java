@@ -8,6 +8,7 @@ package edu.maindspace.gui;
 import edu.maindspace.services.AdminServices;
 import edu.maindspace.services.MembreServices;
 import edu.maindspace.tools.MyConnection;
+import edu.maindspace.tools.SmsSender;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -88,6 +89,9 @@ public class RecuperePwdMembreController implements Initializable {
         tray = new TrayNotification("bien", str, NotificationType.SUCCESS);
         tray.showAndDismiss(Duration.seconds(5));
             
+        //numTelephone =tfCode.getText();
+              SmsSender s = new SmsSender();
+              //s.send(String.valueOf(a),numTelephone);
         }
         else
         {

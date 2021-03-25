@@ -9,6 +9,7 @@ import edu.maindspace.entities.Admin;
 import edu.maindspace.entities.Membre;
 import edu.maindspace.services.AdminServices;
 import edu.maindspace.services.MembreServices;
+import edu.maindspace.tools.SmsSender;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -77,7 +78,9 @@ public class LoginController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-            
+        //for SMS
+//        SmsSender s = new SmsSender();
+//            s.send(email, pwd);
         }
         else
         {
