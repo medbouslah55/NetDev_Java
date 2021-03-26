@@ -31,8 +31,8 @@ public class MainProg extends Application {
     public void start(Stage s) throws IOException {
         primaryStage=s;
         primaryStage.setTitle("MindSpace");
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/menu/Menu.fxml"));
-        Scene scene = new Scene(root, 900, 610);
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/front/MainUi.fxml"));
+        Scene scene = new Scene(root);
 //        scene.getStylesheets().add(getClass().getResource("/gui/Design.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();

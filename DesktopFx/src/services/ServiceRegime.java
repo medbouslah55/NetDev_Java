@@ -116,4 +116,21 @@ public class ServiceRegime implements IService<Regime>{
         return list;
     }
     
+    public ObservableList<Regime> afficherFront() {
+        ObservableList<Regime> list = FXCollections.observableArrayList();
+        
+        try {
+            String requete = "SELECT * FROM regime";
+            Statement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new Regime(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getString(4)));
+            }
+            
+        } catch(SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+    
 }

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DesktopFx.jar" size="76371" download="eager" />
+    <jar href="DesktopFx.jar" size="79325" download="eager" />
     <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
     <jar href="lib\commons-lang3-3.7.jar" size="499634" download="eager" />
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
