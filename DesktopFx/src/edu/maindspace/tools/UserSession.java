@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package edu.maindspace.tools;
 
 import java.sql.Date;
 import java.sql.SQLException;

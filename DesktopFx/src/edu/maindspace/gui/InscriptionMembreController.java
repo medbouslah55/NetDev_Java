@@ -82,6 +82,9 @@ public class InscriptionMembreController implements Initializable {
     @FXML
     private void Inscription(ActionEvent event) {
         Membre m = new Membre();
+        if( (tf_cin_isc.getText().isEmpty())||(tf_nom_isc.getText().isEmpty())||(tf_prenom_isc.getText().isEmpty()) 
+                ||(tf_email_isc.getText().isEmpty()) ||(tf_pwd_isc.getText().isEmpty())||(tf_taille_isc.getText().isEmpty())
+                ||(tf_poids_isc.getText().isEmpty()) ||(tf_telephone_isc.getText().isEmpty())){return ;}
         String cin = tf_cin_isc.getText();
         m.setCin(Integer.parseInt(cin));
         m.setNom(tf_nom_isc.getText());
@@ -147,6 +150,7 @@ public class InscriptionMembreController implements Initializable {
     }
         
     }
+    
 
     @FXML
     private void retour_inscri(ActionEvent event) throws IOException {

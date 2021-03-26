@@ -37,7 +37,7 @@ import javax.mail.internet.MimeMessage;
 import org.apache.commons.codec.digest.DigestUtils;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
-import utils.UserSession;
+import edu.maindspace.tools.UserSession;
 
 /**
  * FXML Controller class
