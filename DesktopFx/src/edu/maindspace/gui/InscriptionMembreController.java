@@ -110,8 +110,8 @@ public class InscriptionMembreController implements Initializable {
             String pass = "Mehdi@2009";
             String to =tf_email_isc.getText() ;
             String from ="mehdi.dagdagui@esprit.tn" ;
-            String subject = "This is confirmation number for your expertprogramming account. Please insert this number to activate your account.";
-            String messageText = "Your Is Test Email : le numero de validation:";
+            String subject = "Compte crée";
+            String messageText = "Bonjour cher nouveau membre , votre compte a été bien crée. Cordialemment";
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();

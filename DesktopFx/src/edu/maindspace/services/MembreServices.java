@@ -204,6 +204,28 @@ public class MembreServices implements IUser<Membre>{
         }
         return 0;
     }
+    public Membre getUserById(String email) {
+        Membre user = null;
+        String requete="SELECT * FROM membre where email=?";
+        ResultSet rs;
+
+        try {
+            
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);
+            pst.setString(1, email);
+            rs = pst.executeQuery();
+            if (rs.last())//kan il9a il user
+            {
+                user = new Membre(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getFloat(6), rs.getFloat(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return user;
+    }
+    
     
     
     

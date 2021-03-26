@@ -12,6 +12,7 @@ import edu.maindspace.services.MembreServices;
 import edu.maindspace.tools.SmsSender;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +28,7 @@ import javafx.util.Duration;
 import org.apache.commons.codec.digest.DigestUtils;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+import utils.UserSession;
 
 /**
  * FXML Controller class
@@ -62,14 +64,15 @@ public class LoginController implements Initializable {
     MembreServices ms =new MembreServices();
     AdminServices as =new AdminServices();
     @FXML
-    private void login_membre(ActionEvent event) {
+    private void login_membre(ActionEvent event) throws SQLException {
         String email = tf_login_email_membre.getText();
         String pwd = DigestUtils.shaHex(tf_login_pass_membre.getText());//crypt
+        UserSession.setInstance(email);
         ms.loginMembre(email, pwd);
         if(ms.loginMembre(email,pwd)==1)
         {
             TrayNotification tray = null;
-            tray = new TrayNotification("welcom back", "nice to see you  ", NotificationType.SUCCESS);
+            tray = new TrayNotification("welcom back", "Nice to see you  "+ UserSession.getInstance().getNom(), NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.seconds(5));
         }
         else
