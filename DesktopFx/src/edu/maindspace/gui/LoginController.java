@@ -24,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.apache.commons.codec.digest.DigestUtils;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
@@ -63,8 +64,21 @@ public class LoginController implements Initializable {
     @FXML
     private void login_membre(ActionEvent event) {
         String email = tf_login_email_membre.getText();
-        String pwd = tf_login_pass_membre.getText();
+        String pwd = DigestUtils.shaHex(tf_login_pass_membre.getText());//crypt
         ms.loginMembre(email, pwd);
+        if(ms.loginMembre(email,pwd)==1)
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("welcom back", "nice to see you  ", NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(5));
+        }
+        else
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "Email ou password incorrect  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+        }
+        
     }
 
     @FXML
