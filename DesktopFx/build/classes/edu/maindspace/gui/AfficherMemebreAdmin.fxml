@@ -55,7 +55,7 @@
                                                 <Font name="Arial Black" size="17.0" />
                                              </font>
                                           </Label>
-                                          <TableView fx:id="tv_afficher_memebre" layoutX="48.0" layoutY="79.0" prefHeight="200.0" prefWidth="484.0">
+                                          <TableView fx:id="tv_afficher_memebre" layoutX="12.0" layoutY="79.0" prefHeight="200.0" prefWidth="551.0">
                                              <columns>
                                                 <TableColumn fx:id="tc_cin_memebre" prefWidth="75.0" text="Cin" />
                                                 <TableColumn fx:id="tc_nom_memebre" prefWidth="75.0" text="Nom" />
@@ -75,9 +75,10 @@
                                           <TextField fx:id="tf_telephone_membre" layoutX="210.0" layoutY="330.0" promptText="Modifier Telephone" />
                                           <TextField fx:id="tf_taille_membre" layoutX="210.0" layoutY="370.0" promptText="Modifier taille" />
                                           <TextField fx:id="tf_poids_membre" layoutX="210.0" layoutY="408.0" promptText="Modifier Poids" />
-                                          <Button fx:id="bt_trie_Membre" layoutX="476.0" layoutY="40.0" mnemonicParsing="false" onAction="#bt_trie_Membre" text="Trie" />
+                                          <Button fx:id="bt_trie_Membre" layoutX="476.0" layoutY="40.0" mnemonicParsing="false" onAction="#bt_trie_Membre" text="Tri" />
                                           <PasswordField fx:id="tf_password_membre" layoutX="210.0" layoutY="293.0" promptText="Password" />
                                           <Button fx:id="bt_pdf_membre" layoutX="333.0" layoutY="40.0" mnemonicParsing="false" onAction="#pdf_membre" text="Liste Membre to PDF" />
+                                          <TextField fx:id="tf_rech_membre" layoutX="12.0" layoutY="40.0" onAction="#rech_membre" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="91.0" prefWidth="802.0" style="-fx-background-color: fde3a7;">

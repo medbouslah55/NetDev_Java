@@ -281,6 +281,17 @@ public class MembreServices implements IUser<Membre>{
         return list;
     }
     
+      public List<Membre> ChercherListActParNom(String categorie) {
+          List<Membre> l = this.afficherPDF();
+          List<Membre> nl = new ArrayList<Membre>();
+           for(int i=0 ; i<l.size() ; i++){
+        if(l.get(i).getNom().toUpperCase().contains(categorie.toUpperCase()))
+            nl.add(l.get(i)); 
+       }
+      return nl ;
+          
+    }
+    
     
     
     

@@ -10,12 +10,14 @@ import edu.maindspace.services.MembreServices;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Member;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -93,6 +95,8 @@ public class AfficherMemebreAdminController implements Initializable {
     private Button menu_bt_Stat_membre;
     @FXML
     private Button bt_pdf_membre;
+    @FXML
+    private TextField tf_rech_membre;
     
 
     /**
@@ -104,6 +108,20 @@ public class AfficherMemebreAdminController implements Initializable {
         // TODO
         afficher_membre();
         cin_cb_modifier_supprimer();
+        
+        //rech
+        MembreServices as = new MembreServices();
+       
+     tf_rech_membre.textProperty().addListener((observable, oldValue, newValue) -> {
+           if(!tf_rech_membre.getText().isEmpty())   {
+        List k = as.ChercherListActParNom(tf_rech_membre.getText()) ;
+        ObservableList<Member> l = FXCollections.observableArrayList(k) ;  
+         tv_afficher_memebre.setItems(FXCollections.observableArrayList(k));}
+        else{
+       this.afficher_membre();
+       
+       }
+     });
     }    
 
     @FXML
@@ -289,6 +307,22 @@ public class AfficherMemebreAdminController implements Initializable {
                 } catch (SQLException ex) {
                     System.out.println("erreur pdf");
                 }
+    }
+
+    @FXML
+    private void rech_membre(ActionEvent event) {
+        MembreServices as = new MembreServices();
+       
+     tf_rech_membre.textProperty().addListener((observable, oldValue, newValue) -> {
+           if(!tf_rech_membre.getText().isEmpty())   {
+        List k = as.ChercherListActParNom(tf_rech_membre.getText()) ;
+        ObservableList<Member> l = FXCollections.observableArrayList(k) ;  
+         tv_afficher_memebre.setItems(FXCollections.observableArrayList(k));}
+        else{
+       this.afficher_membre();
+       
+       }
+     });
     }
 
     
