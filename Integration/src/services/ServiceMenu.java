@@ -22,8 +22,8 @@ import models.Menu;
  *
  * @author trabe
  */
-public class ServiceMenu implements IService<Menu>{
-    
+public class ServiceMenu implements IService<Menu> {
+
     Connection cnx = DataSource.getInstance().getCnx();
 
     @Override
@@ -43,7 +43,7 @@ public class ServiceMenu implements IService<Menu>{
             pst.setInt(10, t.getId_regime());
             pst.executeUpdate();
             System.out.println("Menu Ajoutée!");
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
@@ -56,7 +56,7 @@ public class ServiceMenu implements IService<Menu>{
             pst.setInt(1, t.getId());
             pst.executeUpdate();
             System.out.println("Menu Supprimée !");
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
@@ -79,7 +79,7 @@ public class ServiceMenu implements IService<Menu>{
             pst.setInt(11, t.getId());
             pst.executeUpdate();
             System.out.println("Menu Modfié !");
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
@@ -87,37 +87,49 @@ public class ServiceMenu implements IService<Menu>{
     @Override
     public ObservableList<Menu> afficher() {
         ObservableList<Menu> list = FXCollections.observableArrayList();
-        
+
         try {
             String requete = "SELECT * FROM menu";
             Statement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery(requete);
-            
+
             while (rs.next()) {
-                list.add(new Menu(rs.getInt(1), rs.getString(2),rs.getInt(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11)));
+                list.add(new Menu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11)));
             }
-            
-        } catch(SQLException ex) {
+
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
         return list;
     }
-    
+
     public List<Menu> afficherPDF() {
         List<Menu> list = new ArrayList<>();
-        
+
         try {
             String requete = "SELECT * FROM menu";
             Statement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery(requete);
-            
+
             while (rs.next()) {
-                list.add(new Menu(rs.getInt(1), rs.getString(2),rs.getInt(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11)));
+                list.add(new Menu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11)));
             }
-            
-        } catch(SQLException ex) {
+
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
         return list;
+    }
+
+    public List<Menu> ChercherListActParCategorie(String categorie) {
+        List<Menu> l = this.afficherPDF();
+        List<Menu> nl = new ArrayList<>();
+        for (int i = 0; i < l.size(); i++) {
+            if (l.get(i).getDescirption().toUpperCase().contains(categorie.toUpperCase())) {
+                nl.add(l.get(i));
+            }
+        }
+        return nl;
+
     }
 }

@@ -33,7 +33,7 @@
             </Label>
             <Button fx:id="bt_menu_utilisateur" layoutX="51.0" layoutY="130.0" mnemonicParsing="false" onAction="#menu_utilisateur" text="Gestion des Utilisateur" />
             <Button layoutX="289.0" layoutY="130.0" mnemonicParsing="false" onAction="#open_travail_hssan" text="Gestion des menus et Regimes" />
-            <Button layoutX="561.0" layoutY="130.0" mnemonicParsing="false" text="Gestion des centres et activites" />
+            <Button layoutX="561.0" layoutY="130.0" mnemonicParsing="false" onAction="#open_travail_cyrine" text="Gestion des centres et activites" />
             <Button layoutX="104.0" layoutY="296.0" mnemonicParsing="false" text="mehdi" />
             <Button layoutX="370.0" layoutY="296.0" mnemonicParsing="false" text="hamza" />
             <Button layoutX="648.0" layoutY="296.0" mnemonicParsing="false" text="Firas" />

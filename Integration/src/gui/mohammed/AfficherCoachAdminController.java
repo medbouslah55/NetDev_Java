@@ -136,8 +136,8 @@ public class AfficherCoachAdminController implements Initializable {
 
     ObservableList options;
     String dbUsername = "root";
-    String dbPassword = "root";
-    String dbURL = "jdbc:mysql://localhost:8889/mindspace1";
+    String dbPassword = "";
+    String dbURL = "jdbc:mysql://localhost:3306/bdpidev";
     Connection cnx;
 
     public void cin_cb_modifier_supprimer() {
@@ -161,7 +161,6 @@ public class AfficherCoachAdminController implements Initializable {
 
         cb_supprimer_coach.setItems(null);
         cb_supprimer_coach.setItems(options);
-
     }
 
     @FXML
@@ -250,7 +249,7 @@ public class AfficherCoachAdminController implements Initializable {
 
         }
     }
-    
+
     @FXML
     private void back(MouseEvent event) throws IOException {
         Node node = (Node) event.getSource();

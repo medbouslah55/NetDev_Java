@@ -7,6 +7,7 @@ package gui.mohammed;
  */
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,10 +20,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.apache.commons.codec.digest.DigestUtils;
 import services.AdminServices;
 import services.MembreServices;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+import utils.UserSession;
 
 /**
  * FXML Controller class
@@ -59,10 +62,19 @@ public class LoginController implements Initializable {
     AdminServices as = new AdminServices();
 
     @FXML
-    private void login_membre(ActionEvent event) {
+    private void login_membre(ActionEvent event) throws SQLException {
         String email = tf_login_email_membre.getText();
-        String pwd = tf_login_pass_membre.getText();
-        ms.loginMembre(email, pwd);
+        String pwd =  DigestUtils.shaHex(tf_login_pass_membre.getText());
+        UserSession.setInstance(email);
+        if (ms.loginMembre(email, pwd) == 1) {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Login", "Welcome back "+ UserSession.getInstance().getNom(), NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(5));
+        } else {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "Email ou password incorrect", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+        }
     }
 
     @FXML
@@ -76,7 +88,6 @@ public class LoginController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
         } else {
             TrayNotification tray = null;
             tray = new TrayNotification("Error", "Email ou password incorrect", NotificationType.ERROR);

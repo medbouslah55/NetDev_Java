@@ -10,7 +10,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.Properties;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -25,10 +25,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import models.Membre;
+import org.apache.commons.codec.digest.DigestUtils;
 import services.MembreServices;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import utils.DataSource;
+import utils.UserSession;
 
 /**
  * FXML Controller class
@@ -78,7 +86,7 @@ public class RecuperePwdMembreController implements Initializable {
     }
 
     @FXML
-    private void verifier_cin(ActionEvent event) {
+    private void verifier_cin(ActionEvent event) throws SQLException {
         String cin = tf_cin_recu_pwd.getText();
         int cinn = Integer.parseInt(cin);
         if (ms.RecupPwd(cinn) == 1) {
@@ -86,9 +94,49 @@ public class RecuperePwdMembreController implements Initializable {
             //pour afficher le code generateur dans notif
             String str = Integer.toString(x);
 
-            TrayNotification tray = null;
-            tray = new TrayNotification("bien", str, NotificationType.SUCCESS);
-            tray.showAndDismiss(Duration.seconds(5));
+//            TrayNotification tray = null;
+//            tray = new TrayNotification("bien", str, NotificationType.SUCCESS);
+//            tray.showAndDismiss(Duration.seconds(5));
+            
+            UserSession.setInstance(cinn);
+            
+            try {
+                String host = "smtp.gmail.com";
+                String user = "mehdi.dagdagui@esprit.tn";
+                String pass = "Mehdi@2009";
+                String to = UserSession.getInstance().getEmail();
+                String from = "mehdi.dagdagui@esprit.tn";
+                String subject = "Code de verification ";
+                String messageText = "votre code de verification est : " + str;
+                boolean sessionDebug = false;
+
+                Properties props = System.getProperties();
+
+                props.put("mail.smtp.starttls.enable", "true");
+                props.put("mail.smtp.host", host);
+                props.put("mail.smtp.port", "587");
+                props.put("mail.smtp.auth", "true");
+                props.put("mail.smtp.starttls.required", "true");
+
+                java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+                Session mailSession = Session.getDefaultInstance(props, null);
+                mailSession.setDebug(sessionDebug);
+                Message msg = new MimeMessage(mailSession);
+                msg.setFrom(new InternetAddress(from));
+                InternetAddress[] address = {new InternetAddress(to)};
+                msg.setRecipients(Message.RecipientType.TO, address);
+                msg.setSubject(subject);
+                msg.setSentDate(new java.util.Date());
+                msg.setText(messageText);
+
+                Transport transport = mailSession.getTransport("smtp");
+                transport.connect(host, user, pass);
+                transport.sendMessage(msg, msg.getAllRecipients());
+                transport.close();
+                System.out.println("message send successfully");
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
 
         } else {
             TrayNotification tray = null;
@@ -106,11 +154,10 @@ public class RecuperePwdMembreController implements Initializable {
 
         if (cf == code) {
             System.out.println("dkhal");
-            String nvmdp = tf_nv_pwd.getText();
+            String nvmdp = DigestUtils.shaHex(tf_nv_pwd.getText());
             String requete = "UPDATE membre SET password='" + nvmdp + "' WHERE cin = '" + tf_cin_recu_pwd.getText() + "'";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.executeUpdate();
-
         }
     }
 

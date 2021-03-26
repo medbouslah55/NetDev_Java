@@ -10,11 +10,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -81,6 +80,33 @@ public class AfficherMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         afficher();
+        recherche();
+
+        pdf.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    Document_Creation_Menu dc = new Document_Creation_Menu();
+                    dc.generatePDF();
+                    File file = new File("my_docs.pdf");
+                    if (file.exists()) {
+                        long startTime = System.currentTimeMillis();
+                        Desktop.getDesktop().open(file);
+                        long endTime = System.currentTimeMillis();
+                        System.out.println("Total time taken to open file -> " + file.getName() + " in " + (endTime - startTime) + " ms");
+                    } else {
+                        System.out.println("File exits -> " + file.getAbsolutePath());
+                    }
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (SQLException ex) {
+                    System.out.println("erreur pdf");
+                }
+
+            }
+        });
+
     }
 
     public void afficher() {
@@ -125,31 +151,6 @@ public class AfficherMenuController implements Initializable {
 
         tableview.setItems(list);
 //        System.out.println(list);
-
-        pdf.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    Document_Creation_Menu dc = new Document_Creation_Menu();
-                    dc.generatePDF();
-                    File file = new File("my_docs.pdf");
-                    if (file.exists()) {
-                        long startTime = System.currentTimeMillis();
-                        Desktop.getDesktop().open(file);
-                        long endTime = System.currentTimeMillis();
-                        System.out.println("Total time taken to open file -> " + file.getName() + " in " + (endTime - startTime) + " ms");
-                    } else {
-                        System.out.println("File not exits -> " + file.getAbsolutePath());
-                    }
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (SQLException ex) {
-                    System.out.println("erreur pdf");
-                }
-
-            }
-        });
     }
 
     @FXML
@@ -195,38 +196,17 @@ public class AfficherMenuController implements Initializable {
         }
     }
 
-    @FXML
     private void recherche() {
-        // Wrap the ObservableList in a FilteredList (initially display all data).
-        FilteredList<Menu> filteredData = new FilteredList<>(list, b -> true);
-        // 2. Set the filter Predicate whenever the filter changes.
+        ServiceMenu as = new ServiceMenu();
+
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(menu -> {
-                // If filter text is empty, display all persons.
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare first name and last name of every person with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (menu.getDescirption().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                    return true; // Filter matches first name.
-                } else if (String.valueOf(menu.getTotal_calories()).indexOf(lowerCaseFilter) != -1) {
-                    return true;
-                } else {
-                    return false; // Does not match.
-                }
-            });
+            if (!filterField.getText().isEmpty()) {
+                List k = as.ChercherListActParCategorie(filterField.getText());
+                ObservableList<Menu> l = FXCollections.observableArrayList(k);
+                tableview.setItems(l);
+            } else {
+                this.afficher();
+            }
         });
-        // 3. Wrap the FilteredList in a SortedList. 
-        SortedList<Menu> sortedData = new SortedList<>(filteredData);
-
-        // 4. Bind the SortedList comparator to the TableView comparator.
-        // 	  Otherwise, sorting the TableView would have no effect.
-        sortedData.comparatorProperty().bind(tableview.comparatorProperty());
-
-        // 5. Add sorted (and filtered) data to the table.
-        tableview.setItems(sortedData);
     }
 }

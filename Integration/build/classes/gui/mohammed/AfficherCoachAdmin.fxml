@@ -64,7 +64,7 @@
                                     <ComboBox fx:id="cb_supprimer_coach" layoutX="382.0" layoutY="293.0" onAction="#cb_supprimer_coach" prefWidth="150.0" />
                                     <Button fx:id="bt_supprimer_coach" layoutX="412.0" layoutY="344.0" mnemonicParsing="false" onAction="#bt_supprimer_coach" prefHeight="27.0" prefWidth="91.0" text="Supprimer" />
                                     <Button fx:id="bt_tri_coach" layoutX="434.0" layoutY="44.0" mnemonicParsing="false" onAction="#bt_tri_coach" prefHeight="27.0" prefWidth="91.0" text="Tri par Nom" />
-                                    <Button layoutX="365.0" layoutY="44.0" mnemonicParsing="false" onAction="#pdf_coach" text="PDF" />
+                                    <Button layoutX="331.0" layoutY="44.0" mnemonicParsing="false" onAction="#pdf_coach" text="Imprimer" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="91.0" prefWidth="802.0" style="-fx-background-color: #fde3a7;">

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 23 mars 2021 à 12:45
+-- Généré le : ven. 26 mars 2021 à 21:49
 -- Version du serveur :  10.4.17-MariaDB
--- Version de PHP : 8.0.2
+-- Version de PHP : 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -174,7 +174,10 @@ CREATE TABLE `menu` (
 
 CREATE TABLE `panier` (
   `id_panier` int(11) NOT NULL,
-  `total` double NOT NULL
+  `nom_activite` varchar(255) NOT NULL,
+  `prix` float NOT NULL,
+  `quantite` int(11) NOT NULL,
+  `total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -215,6 +218,8 @@ CREATE TABLE `regime` (
 
 CREATE TABLE `reservation` (
   `id_reservation` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
   `cin_membre` int(11) DEFAULT NULL,
   `date_act` date NOT NULL,
   `nb_place` int(11) NOT NULL,
