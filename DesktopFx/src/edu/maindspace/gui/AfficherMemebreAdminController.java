@@ -7,6 +7,8 @@ package edu.maindspace.gui;
 
 import edu.maindspace.entities.Membre;
 import edu.maindspace.services.MembreServices;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -32,6 +34,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import utils.Document_Creation_Coach;
 
 /**
  * FXML Controller class
@@ -88,6 +91,8 @@ public class AfficherMemebreAdminController implements Initializable {
     private Button bt_trie_Membre;
     @FXML
     private Button menu_bt_Stat_membre;
+    @FXML
+    private Button bt_pdf_membre;
     
 
     /**
@@ -262,6 +267,28 @@ public class AfficherMemebreAdminController implements Initializable {
         tc_telephone_memebre.setCellValueFactory(new PropertyValueFactory<Membre, String>("telephone"));
         
         tv_afficher_memebre.setItems(list);
+    }
+
+    @FXML
+    private void pdf_membre(ActionEvent event) {
+        try {
+                    Document_Creation_Coach dc = new Document_Creation_Coach();
+                    dc.generatePDF();
+                    File file = new File("Liste_Membre.pdf");
+                    if (file.exists()) {
+                        long startTime = System.currentTimeMillis();
+                        Desktop.getDesktop().open(file);
+                        long endTime = System.currentTimeMillis();
+                        System.out.println("Total time taken to open file -> " + file.getName() + " in " + (endTime - startTime) + " ms");
+                    } else {
+                        System.out.println("File not exits -> " + file.getAbsolutePath());
+                    }
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (SQLException ex) {
+                    System.out.println("erreur pdf");
+                }
     }
 
     

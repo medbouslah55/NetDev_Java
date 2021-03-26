@@ -11,6 +11,7 @@ import edu.maindspace.tools.MyConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -224,6 +225,60 @@ public class MembreServices implements IUser<Membre>{
             System.out.println(ex.getMessage());
         }
         return user;
+    }
+    
+    public Membre getUserBycin(int cin) {
+        Membre user = null;
+        String requete="SELECT * FROM membre where cin=?";
+        ResultSet rs;
+
+        try {
+            
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);
+            pst.setInt(1, cin);
+            rs = pst.executeQuery();
+            if (rs.last())//kan il9a il user
+            {
+                user = new Membre(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getFloat(6), rs.getFloat(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return user;
+    }
+    
+    public List<Membre> afficherPDF() {
+        List<Membre> list =new ArrayList();
+        
+        String requete = "SELECT * FROM membre";
+        try {
+            
+            PreparedStatement pst = 
+                    new MyConnection().cn.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery(requete);
+            while (rs.next()) {
+                Membre m =new Membre();
+                m.setCin(rs.getInt("cin"));
+                m.setNom(rs.getString("nom"));
+                m.setPrenom(rs.getString("prenom"));
+                m.setSexe(rs.getString("sexe"));
+                m.setDatee(rs.getDate("datee"));
+                m.setTaille(rs.getFloat("taille"));
+                m.setPoids(rs.getFloat("poids"));
+                m.setEmail(rs.getString("email"));
+                m.setPassword(rs.getString("password"));
+                m.setTelephone(rs.getInt("telephone"));
+                
+                
+                list.add(m);
+            }
+            
+        } catch(SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
     }
     
     

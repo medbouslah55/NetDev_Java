@@ -8,11 +8,14 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DesktopFx.jar" size="72879" download="eager" />
+    <jar href="DesktopFx.jar" size="79406" download="eager" />
     <jar href="lib/TrayNotification.jar" size="41019" download="eager" />
     <jar href="lib/commons-codec-1.4.jar" size="58160" download="eager" />
+    <jar href="lib/commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib/fontbox-2.0.23.jar" size="1563961" download="eager" />
     <jar href="lib/javax.mail.jar" size="659033" download="eager" />
     <jar href="lib/mysql-connector-java-5.1.23-bin.jar" size="834091" download="eager" />
+    <jar href="lib/pdfbox-2.0.23.jar" size="2739013" download="eager" />
     <jar href="lib/twilio-8.8.0-jar-with-dependencies.jar" size="8354602" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="DesktopFx" >

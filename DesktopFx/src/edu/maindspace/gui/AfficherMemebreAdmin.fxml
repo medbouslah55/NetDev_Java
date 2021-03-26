@@ -77,6 +77,7 @@
                                           <TextField fx:id="tf_poids_membre" layoutX="210.0" layoutY="408.0" promptText="Modifier Poids" />
                                           <Button fx:id="bt_trie_Membre" layoutX="476.0" layoutY="40.0" mnemonicParsing="false" onAction="#bt_trie_Membre" text="Trie" />
                                           <PasswordField fx:id="tf_password_membre" layoutX="210.0" layoutY="293.0" promptText="Password" />
+                                          <Button fx:id="bt_pdf_membre" layoutX="333.0" layoutY="40.0" mnemonicParsing="false" onAction="#pdf_membre" text="Liste Membre to PDF" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="91.0" prefWidth="802.0" style="-fx-background-color: fde3a7;">

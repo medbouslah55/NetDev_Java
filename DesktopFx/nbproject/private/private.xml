@@ -11,6 +11,7 @@
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/entities/User.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/entities/Membre.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/RecuperePwdMembreController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/tools/Document_Creation_Coach.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/services/MembreServices.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/LoginController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/StatMembreController.java</file>
@@ -18,6 +19,7 @@
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/InscriptionMembreController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/AfficherMemebreAdminController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/RecuperePwdMembre.fxml</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/tools/UserSession.java</file>
         </group>
     </open-files>
 </project-private>

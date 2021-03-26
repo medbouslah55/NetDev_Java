@@ -43,10 +43,30 @@ public final class UserSession {
         this.password = u.getEmail();
         this.telephone = u.getTelephone();
     }
+    private UserSession(int cin) {
+        MembreServices se = new MembreServices();
+        Membre u = se.getUserBycin(cin);
+        this.cin = u.getCin();
+        this.nom = u.getNom();
+        this.prenom = u.getPrenom();
+        this.sexe = u.getSexe();
+        this.datee = u.getDatee();
+        this.taille = u.getTaille();
+        this.poids = u.getPoids();
+        this.email = u.getEmail();
+        this.password = u.getEmail();
+        this.telephone = u.getTelephone();
+    }
 
     public static UserSession setInstance(String email) throws SQLException {
         if (instance == null) {
             instance = new UserSession(email);
+        }
+        return instance;
+    }
+    public static UserSession setInstance(int cin) throws SQLException {
+        if (instance == null) {
+            instance = new UserSession(cin);
         }
         return instance;
     }

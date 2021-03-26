@@ -7,6 +7,8 @@ package edu.maindspace.gui;
 
 import edu.maindspace.entities.Coach;
 import edu.maindspace.services.CoachServices;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -34,6 +36,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import utils.Document_Creation_Coach;
 
 /**
  * FXML Controller class
@@ -254,6 +257,9 @@ public class AfficherCoachAdminController implements Initializable {
         
         
     }
+    
+    
+    
     }
 
     
