@@ -8,6 +8,7 @@ package edu.maindspace.tools;
 import java.sql.Date;
 import java.sql.SQLException;
 import edu.maindspace.entities.Membre;
+import edu.maindspace.entities.User;
 import edu.maindspace.services.MembreServices;
 
 /**
@@ -17,6 +18,7 @@ import edu.maindspace.services.MembreServices;
 public final class UserSession {
 
     private static UserSession instance;
+    private User loggedUser;
     private int cin;
     private String nom;
     private String prenom;
@@ -118,7 +120,15 @@ public final class UserSession {
      public void cleanUserSession() {
         email = "";// or null
     }
+     
+     public User getLoggedUser() {
+        return loggedUser;
+    }
 
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
+    }
+     
     @Override
     public String toString() {
         return "UserSession{" + "cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", sexe=" + sexe + ", datee=" + datee + ", taille=" + taille + ", poids=" + poids + ", email=" + email + ", password=" + password + ", telephone=" + telephone + '}';

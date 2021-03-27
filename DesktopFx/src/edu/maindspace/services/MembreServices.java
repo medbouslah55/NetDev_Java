@@ -8,6 +8,7 @@ package edu.maindspace.services;
 import edu.maindspace.entities.Membre;
 import edu.maindspace.interfaces.IUser;
 import edu.maindspace.tools.MyConnection;
+import edu.maindspace.tools.UserSession;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -158,6 +159,7 @@ public class MembreServices implements IUser<Membre>{
 //        return null;
 //    }
     public int loginMembre(String email,String password){
+        Membre membre = null;
         String requete="SELECT * FROM membre where email=? and password=? ";
         ResultSet res;
         try {
@@ -170,7 +172,10 @@ public class MembreServices implements IUser<Membre>{
             res= pst.executeQuery();
             if (res.last())
             {
+                membre =new Membre(res.getInt(1), res.getString(2),res.getString(3),res.getString(4),res.getDate(5),res.getFloat(6),res.getFloat(7),res.getString(8),res.getString(9),res.getInt(10));
+                UserSession.getInstance().setLoggedUser(membre);
                 System.out.println("loged Mmebre");
+                
                 return 1;
             }
             
@@ -291,6 +296,7 @@ public class MembreServices implements IUser<Membre>{
       return nl ;
           
     }
+      
     
     
     

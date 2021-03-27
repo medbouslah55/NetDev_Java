@@ -6,6 +6,7 @@
 package edu.maindspace.entities;
 
 import java.sql.Date;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -17,6 +18,7 @@ public class User {
     private String prenom;
     private String sexe;
     private Date datee;
+    
 
     public User() {
     }
@@ -78,7 +80,55 @@ public class User {
         return "User{" + "cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", sexe=" + sexe + ", datee=" + datee + '}';
     }
     
+    //////
     
+    
+    private float taille;
+    private float poids;
+    private String email;
+    private String password;
+    private int telephone;
+    
+    public float getTaille() {
+        return taille;
+    }
+
+    public void setTaille(float taille) {
+        this.taille = taille;
+    }
+
+    public float getPoids() {
+        return poids;
+    }
+
+    public void setPoids(float poids) {
+        this.poids = poids;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        
+        this.password = DigestUtils.shaHex(password);
+    }
+
+    public int getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(int telephone) {
+        this.telephone = telephone;
+    }
 
     
 }

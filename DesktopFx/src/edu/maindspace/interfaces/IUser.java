@@ -18,6 +18,7 @@ public interface IUser <T> {
     public List<T> afficher();
     public List<T> userListe();
     public List<T> TrieParNom();
+    //public void EditProfile(T t);
     //public T ChercherUserParNom(String nom);
     
 }

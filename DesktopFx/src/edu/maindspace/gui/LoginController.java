@@ -64,7 +64,7 @@ public class LoginController implements Initializable {
     MembreServices ms =new MembreServices();
     AdminServices as =new AdminServices();
     @FXML
-    private void login_membre(ActionEvent event) throws SQLException {
+    private void login_membre(ActionEvent event) throws SQLException, IOException {
         String email = tf_login_email_membre.getText();
         String pwd = DigestUtils.shaHex(tf_login_pass_membre.getText());//crypt
         UserSession.setInstance(email);
@@ -74,6 +74,12 @@ public class LoginController implements Initializable {
             TrayNotification tray = null;
             tray = new TrayNotification("welcom back", "Nice to see you  "+ UserSession.getInstance().getNom(), NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.seconds(5));
+            Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("EditeProfile.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
         }
         else
         {

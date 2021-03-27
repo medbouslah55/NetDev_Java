@@ -16,10 +16,13 @@
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/services/MembreServices.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/LoginController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/StatMembreController.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/interfaces/IUser.java</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/EditeProfile.fxml</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/tools/SmsSender.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/InscriptionMembreController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/AfficherMemebreAdminController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/RecuperePwdMembre.fxml</file>
+            <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/gui/EditeProfileController.java</file>
             <file>file:/Users/mohamedbouslah/Desktop/PiDev/DesktopFx/src/edu/maindspace/tools/UserSession.java</file>
         </group>
     </open-files>
