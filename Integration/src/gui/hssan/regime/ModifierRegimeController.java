@@ -18,7 +18,6 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -26,12 +25,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
-import models.Menu;
 import models.Regime;
-import services.ServiceMenu;
 import services.ServiceRegime;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -95,28 +95,33 @@ public class ModifierRegimeController implements Initializable {
         
     }
     
-    private boolean controle_saisie(){
+    private boolean controle_saisie() {
         if (taDesc.getText().isEmpty() || tfType.getText().isEmpty()){
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Données erronés");
-            alert.setHeaderText("Verifier les données");
-            alert.setContentText("Veuillez bien remplir tous les champs !");
-            alert.showAndWait();
-            
+            TrayNotification tray = null;
+            tray = new TrayNotification("Données erronés", "Veuillez bien remplir tous les champs !", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(7));
+
             return false;
-//        } else {
-//
-//            if (!Pattern.matches("^[a-z A-Z]*$", taDesc.getText())) {
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setTitle("Données erronés");
-//                alert.setHeaderText("Verifier les données");
-//                alert.setContentText("Vérifiez la Description !");
-//                alert.showAndWait();
-//                taDesc.requestFocus();
-//                taDesc.selectEnd();
-//                return false;
-//            }
+        } else {
+
+            if (!Pattern.matches("^[A-Z a-z 0-9]+$", taDesc.getText())) {
+                TrayNotification tray = null;
+                tray = new TrayNotification("Données erronés", "Vérifiez la Description !", NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(7));
+                taDesc.requestFocus();
+                taDesc.selectEnd();
+                return false;
+            }
+            
+            if (!Pattern.matches("^[A-Z a-z 0-9]+$", tfType.getText())) {
+                TrayNotification tray = null;
+                tray = new TrayNotification("Données erronés", "Vérifiez le Type !", NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(7));
+                taDesc.requestFocus();
+                taDesc.selectEnd();
+                return false;
+            }
         }
         return true;
     }

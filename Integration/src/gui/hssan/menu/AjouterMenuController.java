@@ -5,7 +5,6 @@ package gui.hssan.menu;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +20,10 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -31,6 +33,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
@@ -76,10 +79,11 @@ public class AjouterMenuController implements Initializable {
     private TextField tfTotalCalories;
     @FXML
     private ComboBox<String> comboRegime;
-    
+
     ObservableList<String> list = FXCollections.observableArrayList();
-    
+
     Connection cnx = DataSource.getInstance().getCnx();
+
     /**
      * Initializes the controller class.
      */
@@ -87,19 +91,18 @@ public class AjouterMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         load_nom();
     }
-    
-    public void load_nom(){
+
+    public void load_nom() {
         try {
             String requete = "SELECT type FROM regime";
             Statement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery(requete);
-            while (rs.next())
-            {
+            while (rs.next()) {
                 list.add(rs.getString("type"));
             }
-            
+
             comboRegime.setItems(list);
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
@@ -131,12 +134,12 @@ public class AjouterMenuController implements Initializable {
                 String dejeuner = tfDejeuner.getText();
                 String dinner = tfDinner.getText();
                 int total_calories = Integer.parseInt(tfTotalCalories.getText());
-                String reg = (String)comboRegime.getValue();
-                
-                String requete = "SELECT id_regime FROM regime WHERE type="+(char)34+reg+(char)34;
+                String reg = (String) comboRegime.getValue();
+
+                String requete = "SELECT id_regime FROM regime WHERE type=" + (char) 34 + reg + (char) 34;
                 Statement pst = cnx.prepareStatement(requete);
                 ResultSet rs = pst.executeQuery(requete);
-                if(rs.next()){
+                if (rs.next()) {
                     sp.ajouter(new Menu(desc, nbJours, matin, photo1, dejeuner, photo2, dinner, photo3, total_calories, rs.getInt(1)));
 //                    JOptionPane.showMessageDialog(null, "Menu ajoutée!");
                     TrayNotification tray = null;
@@ -148,25 +151,22 @@ public class AjouterMenuController implements Initializable {
             }
         }
     }
-    
-    private boolean controle_saisie(){
-        if (taDesc.getText().isEmpty() || tf_nb_jours.getText().isEmpty() || tfMatin.getText().isEmpty() || tfDejeuner.getText().isEmpty() || tfDinner.getText().isEmpty() || tfTotalCalories.getText().isEmpty()){
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Données erronés");
-            alert.setHeaderText("Verifier les données");
-            alert.setContentText("Veuillez bien remplir tous les champs !");
-            alert.showAndWait();
-            
+    private boolean controle_saisie() {
+        if (taDesc.getText().isEmpty() || tf_nb_jours.getText().isEmpty() || tfMatin.getText().isEmpty() || tfDejeuner.getText().isEmpty() || tfDinner.getText().isEmpty()
+                || tfTotalCalories.getText().isEmpty()) {
+
+            TrayNotification tray = null;
+            tray = new TrayNotification("Données erronés", "Veuillez bien remplir tous les champs !", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(7));
+
             return false;
         } else {
 
-            if (!Pattern.matches("^[a-z A-Z]*$", taDesc.getText())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Données erronés");
-                alert.setHeaderText("Verifier les données");
-                alert.setContentText("Vérifiez la Description !");
-                alert.showAndWait();
+            if (!Pattern.matches("^[A-Z a-z 0-9]+$", taDesc.getText())) {
+                TrayNotification tray = null;
+                tray = new TrayNotification("Données erronés", "Vérifiez la Description !", NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(7));
                 taDesc.requestFocus();
                 taDesc.selectEnd();
                 return false;
@@ -190,7 +190,7 @@ public class AjouterMenuController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     @FXML
     private void addImage2(MouseEvent event) {
         FileChooser fc = new FileChooser();
@@ -206,7 +206,7 @@ public class AjouterMenuController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     @FXML
     private void addImage3(MouseEvent event) {
         FileChooser fc = new FileChooser();
@@ -222,8 +222,8 @@ public class AjouterMenuController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
-    
-    public static String saveToFileImageNormal(Image image)throws SQLException  {
+
+    public static String saveToFileImageNormal(Image image) throws SQLException {
         String ext = "jpg";
         File dir = new File("C:/Users/trabe/Desktop/Integration/src/images/");
         String name = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
@@ -235,5 +235,19 @@ public class AjouterMenuController implements Initializable {
             throw new RuntimeException(e);
         }
         return name;
+    }
+
+    @FXML
+    private void load_caloires(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/hssan/menu/Calories.fxml"));
+            Parent tableViewParent = loader.load();
+
+            Scene tableViewScene = new Scene(tableViewParent);
+            //This line gets the Stage information
+            Stage window = new Stage();
+            window.setTitle("Calculateur calorique");
+            window.setScene(tableViewScene);
+            window.show();
     }
 }

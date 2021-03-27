@@ -20,19 +20,23 @@
                   <TableColumn fx:id="img" prefWidth="209.0" text="Image" />
                </columns>
             </TableView>
-            <Button fx:id="btnSupp" layoutX="444.0" layoutY="430.0" onAction="#supprimer" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: red; -fx-background-radius: 30px;" text="Supprimer" textFill="WHITE">
+            <Button fx:id="btnSupp" layoutX="435.0" layoutY="430.0" onAction="#supprimer" prefHeight="39.0" prefWidth="151.0" style="-fx-background-color: red; -fx-background-radius: 30px;" text="   Supprimer" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnModif" layoutX="100.0" layoutY="430.0" onAction="#modifier" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="Modifier" textFill="WHITE">
+            <Button fx:id="btnModif" layoutX="131.0" layoutY="430.0" onAction="#modifier" prefHeight="39.0" prefWidth="143.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="  Modifier" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Button>
-            <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="114.0" layoutY="455.0" size="15" wrappingWidth="15.0" />
-            <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="452.0" layoutY="456.0" size="15" />
-            <Button layoutX="109.0" layoutY="21.0" mnemonicParsing="false" onAction="#TrieParType" text="Trier Par Type" />
+            <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="144.0" layoutY="456.0" size="15" wrappingWidth="15.0" />
+            <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="449.0" layoutY="456.0" size="15" />
+            <Button layoutX="33.0" layoutY="22.0" mnemonicParsing="false" onAction="#TrieParType" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #f9bf3b; -fx-background-radius: 30px;" text="Tri (Type) ↓" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="9.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

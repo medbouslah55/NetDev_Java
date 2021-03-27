@@ -46,7 +46,7 @@ public class AfficherRegimeController implements Initializable {
     private Button btnSupp;
     @FXML
     private Button btnModif;
-    
+
     ObservableList<Regime> list = FXCollections.observableArrayList();
 
     /**
@@ -56,24 +56,24 @@ public class AfficherRegimeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         afficher();
     }
-    
-    public void afficher(){
+
+    public void afficher() {
         ServiceRegime sp = new ServiceRegime();
         list = sp.afficher();
-        
+
         id.setCellValueFactory(
-            new PropertyValueFactory<>("id"));
-        
+                new PropertyValueFactory<>("id"));
+
         type.setCellValueFactory(
-            new PropertyValueFactory<>("type"));
-        
+                new PropertyValueFactory<>("type"));
+
         Desc.setCellValueFactory(
-            new PropertyValueFactory<>("description"));
-        
+                new PropertyValueFactory<>("description"));
+
         img.setPrefWidth(80);
         img.setCellValueFactory(
-            new PropertyValueFactory<>("image"));
-        
+                new PropertyValueFactory<>("image"));
+
         tableview.setItems(list);
     }
 
@@ -122,17 +122,17 @@ public class AfficherRegimeController implements Initializable {
 
     @FXML
     private void TrieParType(ActionEvent event) {
-        ServiceRegime cs =new ServiceRegime();
-        ObservableList<Regime> list =  cs.TrieParNom();
+        ServiceRegime cs = new ServiceRegime();
+        ObservableList<Regime> list = cs.TrieParNom();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        
+
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        
+
         Desc.setCellValueFactory(new PropertyValueFactory<>("description"));
-        
+
         img.setPrefWidth(80);
         img.setCellValueFactory(new PropertyValueFactory<>("image"));
-        
+
         tableview.setItems(list);
     }
 }

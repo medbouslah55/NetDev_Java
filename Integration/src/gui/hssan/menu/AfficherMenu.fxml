@@ -40,11 +40,11 @@
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="pdf" layoutX="555.0" layoutY="18.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-radius: 30px;" text="PDF" />
+            <Button fx:id="pdf" layoutX="555.0" layoutY="18.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-radius: 30px;" text="   PDF" />
             <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="114.0" layoutY="456.0" size="15" />
             <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="452.0" layoutY="456.0" size="15" />
-            <FontAwesomeIconView fill="#000dff" glyphName="SEARCH" layoutX="79.0" layoutY="37.0" />
-            <FontAwesomeIconView fill="RED" glyphName="FILE_PDF_ALT" layoutX="565.0" layoutY="38.0" />
+            <FontAwesomeIconView fill="#000dff" glyphName="SEARCH" layoutX="78.0" layoutY="38.0" size="15" />
+            <FontAwesomeIconView fill="RED" glyphName="FILE_PDF_ALT" layoutX="568.0" layoutY="39.0" size="15" />
             <Label layoutX="98.0" layoutY="23.0" text="Rechercher :" />
          </children>
       </Pane>
