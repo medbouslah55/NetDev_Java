@@ -6,6 +6,7 @@
 package models;
 
 import java.util.Comparator;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Regime implements Comparator<Regime> {
     private String type;
     private String description;
     private String image;
+    private ImageView img;
 
     public Regime() {
     }
@@ -26,6 +28,14 @@ public class Regime implements Comparator<Regime> {
         this.type = type;
         this.description = description;
         this.image = image;
+    }
+
+    public Regime(int id, String type, String description, String image, ImageView img) {
+        this.id = id;
+        this.type = type;
+        this.description = description;
+        this.image = image;
+        this.img = img;
     }
 
     public Regime(String type, String description, String image) {
@@ -64,6 +74,14 @@ public class Regime implements Comparator<Regime> {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public ImageView getImg() {
+        return img;
+    }
+
+    public void setImg(ImageView img) {
+        this.img = img;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package models;
 
+import javafx.scene.image.ImageView;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -22,6 +24,9 @@ public class Menu {
     private String dinner_img;
     private int total_calories;
     private int id_regime;
+    private ImageView img_matin;
+    private ImageView img_dejeuner;
+    private ImageView img_dinner;
 
     public Menu() {
     }
@@ -62,6 +67,25 @@ public class Menu {
         this.total_calories = total_calories;
         this.id_regime = id_regime;
     }
+
+    public Menu(int id, String descirption, int num_jour, String matin, String matin_img, String dejeuner, String dejeuner_img, String dinner, String dinner_img, int total_calories, int id_regime, ImageView img_matin, ImageView img_dejeuner, ImageView img_dinner) {
+        this.id = id;
+        this.descirption = descirption;
+        this.num_jour = num_jour;
+        this.matin = matin;
+        this.matin_img = matin_img;
+        this.dejeuner = dejeuner;
+        this.dejeuner_img = dejeuner_img;
+        this.dinner = dinner;
+        this.dinner_img = dinner_img;
+        this.total_calories = total_calories;
+        this.id_regime = id_regime;
+        this.img_matin = img_matin;
+        this.img_dejeuner = img_dejeuner;
+        this.img_dinner = img_dinner;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -150,6 +174,32 @@ public class Menu {
     public void setId_regime(int id_regime) {
         this.id_regime = id_regime;
     }
+
+    public ImageView getImg_matin() {
+        return img_matin;
+    }
+
+    public ImageView getImg_dejeuner() {
+        return img_dejeuner;
+    }
+
+    public ImageView getImg_dinner() {
+        return img_dinner;
+    }
+
+    public void setImg_matin(ImageView img_matin) {
+        this.img_matin = img_matin;
+    }
+
+    public void setImg_dejeuner(ImageView img_dejeuner) {
+        this.img_dejeuner = img_dejeuner;
+    }
+
+    public void setImg_dinner(ImageView img_dinner) {
+        this.img_dinner = img_dinner;
+    }
+    
+    
 
     @Override
     public String toString() {

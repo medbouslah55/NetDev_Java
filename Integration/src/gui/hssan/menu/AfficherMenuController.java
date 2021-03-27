@@ -130,21 +130,21 @@ public class AfficherMenuController implements Initializable {
 
         image_mat.setPrefWidth(80);
         image_mat.setCellValueFactory(
-                new PropertyValueFactory<>("matin_img"));
+                new PropertyValueFactory<>("img_matin"));
 
         dej.setCellValueFactory(
                 new PropertyValueFactory<>("dejeuner"));
 
         image_dej.setPrefWidth(80);
         image_dej.setCellValueFactory(
-                new PropertyValueFactory<>("dejeuner_img"));
+                new PropertyValueFactory<>("img_dejeuner"));
 
         dinner.setCellValueFactory(
                 new PropertyValueFactory<>("dinner"));
 
         image_dinner.setPrefWidth(80);
         image_dinner.setCellValueFactory(
-                new PropertyValueFactory<>("dinner_img"));
+                new PropertyValueFactory<>("img_dinner"));
 
         total_cal.setCellValueFactory(
                 new PropertyValueFactory<>("total_calories"));

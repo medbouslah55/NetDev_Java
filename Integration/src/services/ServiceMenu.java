@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import models.Menu;
 
 /**
@@ -94,7 +96,19 @@ public class ServiceMenu implements IService<Menu> {
             ResultSet rs = pst.executeQuery(requete);
 
             while (rs.next()) {
-                list.add(new Menu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11)));
+                Image image1 = new Image("file:/C:/Users/trabe/Desktop/Integration/src/images/" + rs.getString(5)); //creat img
+                ImageView imgV1 = new ImageView(image1);
+                imgV1.setFitHeight(80);
+                imgV1.setFitWidth(80);
+                Image image2 = new Image("file:/C:/Users/trabe/Desktop/Integration/src/images/" + rs.getString(7)); //creat img
+                ImageView imgV2 = new ImageView(image2);
+                imgV2.setFitHeight(80);
+                imgV2.setFitWidth(80);
+                Image image3 = new Image("file:/C:/Users/trabe/Desktop/Integration/src/images/" + rs.getString(9)); //creat img
+                ImageView imgV3 = new ImageView(image3);
+                imgV3.setFitHeight(80);
+                imgV3.setFitWidth(80);
+                list.add(new Menu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11), imgV1, imgV2, imgV3));
             }
 
         } catch (SQLException ex) {
@@ -112,7 +126,20 @@ public class ServiceMenu implements IService<Menu> {
             ResultSet rs = pst.executeQuery(requete);
 
             while (rs.next()) {
-                list.add(new Menu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11)));
+                Image image1 = new Image("file:/C:/Users/trabe/Desktop/Integration/src/images/" + rs.getString(5)); //creat img
+                ImageView imgV1 = new ImageView(image1);
+                imgV1.setFitHeight(80);
+                imgV1.setFitWidth(80);
+                Image image2 = new Image("file:/C:/Users/trabe/Desktop/Integration/src/images/" + rs.getString(7)); //creat img
+                ImageView imgV2 = new ImageView(image2);
+                imgV2.setFitHeight(80);
+                imgV2.setFitWidth(80);
+                Image image3 = new Image("file:/C:/Users/trabe/Desktop/Integration/src/images/" + rs.getString(9)); //creat img
+                ImageView imgV3 = new ImageView(image3);
+                imgV3.setFitHeight(80);
+                imgV3.setFitWidth(80);
+                list.add(new Menu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11), imgV1, imgV2, imgV3));
+
             }
 
         } catch (SQLException ex) {

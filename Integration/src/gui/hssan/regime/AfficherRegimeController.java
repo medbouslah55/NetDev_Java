@@ -72,7 +72,7 @@ public class AfficherRegimeController implements Initializable {
 
         img.setPrefWidth(80);
         img.setCellValueFactory(
-                new PropertyValueFactory<>("image"));
+                new PropertyValueFactory<>("img"));
 
         tableview.setItems(list);
     }
@@ -131,7 +131,7 @@ public class AfficherRegimeController implements Initializable {
         Desc.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         img.setPrefWidth(80);
-        img.setCellValueFactory(new PropertyValueFactory<>("image"));
+        img.setCellValueFactory(new PropertyValueFactory<>("img"));
 
         tableview.setItems(list);
     }

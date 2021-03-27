@@ -14,6 +14,8 @@ import java.sql.Statement;
 import java.util.Collections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import models.Regime;
 import utils.DataSource;
 
@@ -71,6 +73,27 @@ public class ServiceRegime implements IService<Regime>{
 
     @Override
     public ObservableList<Regime> afficher() {
+        ObservableList<Regime> list = FXCollections.observableArrayList();
+        
+        try {
+            String requete = "SELECT * FROM regime";
+            Statement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery(requete);
+            while (rs.next()) {
+                Image image = new Image("file:/C:/Users/trabe/Desktop/Integration/src/images/" + rs.getString(4)); //creat img
+                ImageView imgV = new ImageView(image);
+                imgV.setFitHeight(80);
+                imgV.setFitWidth(80);
+                list.add(new Regime(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getString(4), imgV));
+            }
+            
+        } catch(SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+    
+    public ObservableList<Regime> afficherImage() {
         ObservableList<Regime> list = FXCollections.observableArrayList();
         
         try {

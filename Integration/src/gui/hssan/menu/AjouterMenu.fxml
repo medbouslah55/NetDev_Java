@@ -17,11 +17,11 @@
    <children>
       <ScrollPane prefHeight="480.0" prefWidth="670.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="760.0" prefWidth="670.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="809.0" prefWidth="670.0">
                <children>
-                  <Pane prefHeight="814.0" prefWidth="673.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                  <Pane layoutY="-1.0" prefHeight="808.0" prefWidth="670.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                      <children>
-                        <Button fx:id="btnAjouter" layoutX="272.0" layoutY="748.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="Ajouter" textFill="WHITE">
+                        <Button fx:id="btnAjouter" layoutX="271.0" layoutY="757.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="Ajouter" textFill="WHITE">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
@@ -53,7 +53,7 @@
                         <TextField fx:id="tf_nb_jours" layoutX="201.0" layoutY="222.0" prefHeight="31.0" prefWidth="269.0" promptText="Nombre de jour" />
                         <TextArea fx:id="taDesc" layoutX="199.0" layoutY="137.0" prefHeight="68.0" prefWidth="269.0" promptText="Description:" />
                         <ComboBox fx:id="comboRegime" layoutX="199.0" layoutY="79.0" prefHeight="39.0" prefWidth="267.0" promptText="Regime" />
-                        <Button layoutX="253.0" layoutY="702.0" mnemonicParsing="false" onAction="#load_caloires" style="-fx-background-radius: 30px;" text="Calculate Total Caloires" />
+                        <Button layoutX="249.0" layoutY="709.0" mnemonicParsing="false" onAction="#load_caloires" style="-fx-background-radius: 30px;" text="Calculate Total Caloires" />
                      </children></Pane>
                   <Label layoutX="18.0" layoutY="8.0" prefHeight="29.0" prefWidth="164.0" text="Ajouter un menu:" underline="true">
                      <font>
