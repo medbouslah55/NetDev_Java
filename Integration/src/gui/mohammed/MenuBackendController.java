@@ -32,6 +32,8 @@ public class MenuBackendController implements Initializable {
     private Button bt_dec_menu_back;
     @FXML
     private Button bt_menu_utilisateur;
+    @FXML
+    private Button tfgestion;
 
     /**
      * Initializes the controller class.
@@ -80,6 +82,16 @@ public class MenuBackendController implements Initializable {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/cyrine/Home.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void goreclamationadmin(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/firas/ReclamationAdmin.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="1195.0" style="-fx-background-color: FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ListeAbonnementController">
+    <children>
+      <Button layoutX="660.0" layoutY="577.0" mnemonicParsing="false" onAction="#SupprimerAB" prefHeight="41.0" prefWidth="129.0" style="-fx-background-color: #542ae8#542ae8 #542ae8#542ae8;" text="Supprimer" textFill="WHITE">
+         <graphic>
+            <MaterialDesignIconView fx:id="btnsupprimer" fill="#f8f7f7" glyphName="DELETE_VARIANT" size="30" text="" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="457.0" layoutY="577.0" mnemonicParsing="false" onAction="#ModifierAB" prefHeight="30.0" prefWidth="189.0" style="-fx-background-color: #542ae8#542ae8;" text="Modifier " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fx:id="btnmodifier" fill="#f8f7f7" glyphName="EDIT" size="30" text="" textAlignment="RIGHT" />
+         </graphic>
+      </Button>
+      <Button layoutX="1098.0" layoutY="138.0" mnemonicParsing="false" onAction="#loadDate" style="-fx-background-color: #542ae8 #542ae8;">
+         <graphic>
+            <FontAwesomeIconView fx:id="btnactualiser" fill="#f8f7f7" glyphName="REFRESH" size="20" text="" />
+         </graphic>
+      </Button>
+      <TableView fx:id="coltabab" accessibleRole="CHECK_BOX" layoutX="258.0" layoutY="171.0" onMouseClicked="#selection" prefHeight="325.0" prefWidth="935.0" style="-fx-border-color: #542ae8#542ae8; -fx-border-width: 3;" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn fx:id="colti" prefWidth="225.0" resizable="false" text="Titre" />
+          <TableColumn fx:id="colty" prefWidth="114.0" resizable="false" text="Type" />
+            <TableColumn fx:id="colp" minWidth="0.0" prefWidth="110.0" resizable="false" text="Prix" />
+            <TableColumn fx:id="cold" prefWidth="289.0" resizable="false" text="Description" />
+            <TableColumn fx:id="colediter" minWidth="0.0" prefWidth="189.0" resizable="false" text="Editer" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Pane layoutX="253.0" prefHeight="129.0" prefWidth="942.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="898.0" layoutY="33.0" onMouseClicked="#close" size="30" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="299.0" layoutY="22.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="407.0" text="Les Types Des Abonnements" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="129.0" prefWidth="256.0" style="-fx-background-color: fabe58;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-14.0" prefHeight="129.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/C:/Users/Firas/Desktop/Integration/src/images/Logo%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutY="129.0" prefHeight="498.0" prefWidth="256.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <Button fx:id="btnback" layoutX="59.0" layoutY="443.0" mnemonicParsing="false" onAction="#backtomenu" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #542ae8#542ae8;" text="Retourner" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="#f5f2f2" glyphName="ARROW_CIRCLE_LEFT" size="30" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TextField fx:id="tftitre" alignment="CENTER" layoutX="258.0" layoutY="502.0" promptText="Titre" style="-fx-border-color: #542ae8#542ae8;" />
+      <TextField fx:id="tftype" alignment="CENTER" layoutX="258.0" layoutY="544.0" promptText="Type" style="-fx-border-color: #542ae8#542ae8;" />
+      <TextField fx:id="tfprix" alignment="CENTER" layoutX="258.0" layoutY="581.0" promptText="Prix" style="-fx-border-color: #542ae8#542ae8;" />
+      <TextField fx:id="tfdescription" alignment="CENTER" layoutX="457.0" layoutY="501.0" prefHeight="73.0" prefWidth="189.0" promptText="Description" style="-fx-border-color: #542ae8#542ae8;" />
+      <Button fx:id="btnimprimer" layoutX="1142.0" layoutY="138.0" mnemonicParsing="false" onAction="#printRec" prefHeight="31.0" prefWidth="38.0" style="-fx-background-color: #542ae8#542ae8;">
+         <graphic>
+            <FontAwesomeIconView fill="#f8f5f5" glyphName="PRINT" size="20" />
+         </graphic>
+      </Button>
+      <Label layoutX="261.0" layoutY="138.0" prefHeight="31.0" prefWidth="67.0" text="Trier Par" textFill="#542ae8" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="combotrie" layoutX="328.0" layoutY="137.0" onAction="#cherchertous" prefHeight="30.0" prefWidth="187.0" style="-fx-border-color: #542ae8;" />
+      <Label layoutX="860.0" layoutY="499.0" prefHeight="31.0" prefWidth="139.0" text="Exporter En Fichier" textFill="#542ae8" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboexporter" layoutX="1003.0" layoutY="498.0" onAction="#extarcter" prefHeight="33.0" prefWidth="189.0" style="-fx-border-color: #542ae8;" />
+   </children>
+</AnchorPane>

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Integration.jar" size="211552" download="eager" />
+    <jar href="Integration.jar" size="2982441" download="eager" />
     <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
     <jar href="lib\commons-codec-1.4.jar" size="58160" download="eager" />
     <jar href="lib\commons-lang3-3.7.jar" size="499634" download="eager" />
@@ -20,8 +20,9 @@
     <jar href="lib\jfoenix-1.0.0.jar" size="2186636" download="eager" />
     <jar href="lib\kernel-7.1.11.jar" size="1185161" download="eager" />
     <jar href="lib\mail.jar" size="507849" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.23.jar" size="2415211" download="eager" />
     <jar href="lib\pdfbox-2.0.23.jar" size="2739013" download="eager" />
+    <jar href="lib\poi-3.9.jar" size="1869113" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Integration" >
     <param name="requiredFXVersion" value="8.0+"/>
