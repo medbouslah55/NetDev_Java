@@ -33,7 +33,7 @@
             <Button layoutX="561.0" layoutY="146.0" mnemonicParsing="false" onAction="#open_travail_cyrine" text="Gestion des centres et activites" />
             <Button layoutX="104.0" layoutY="296.0" mnemonicParsing="false" text="mehdi" />
             <Button layoutX="370.0" layoutY="296.0" mnemonicParsing="false" text="hamza" />
-            <Button fx:id="tfgestion" layoutX="592.0" layoutY="296.0" mnemonicParsing="false" onAction="#goreclamationadmin" text="Gestion Réclamations" />
+            <Button layoutX="648.0" layoutY="296.0" mnemonicParsing="false" text="Firas" />
             <FontAwesomeIconView glyphName="USERS" layoutX="110.0" layoutY="125.0" size="40" wrappingWidth="50.99998474121094" />
             <FontAwesomeIconView glyphName="HEARTBEAT" layoutX="381.0" layoutY="126.0" size="40" />
             <Label layoutX="367.0" layoutY="10.0" prefHeight="39.0" prefWidth="75.0" text="MENU">
