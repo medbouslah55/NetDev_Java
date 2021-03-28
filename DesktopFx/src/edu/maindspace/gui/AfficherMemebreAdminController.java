@@ -5,6 +5,7 @@
  */
 package edu.maindspace.gui;
 
+import edu.maindspace.entities.ControleSaisie;
 import edu.maindspace.entities.Membre;
 import edu.maindspace.services.MembreServices;
 import java.awt.Desktop;
@@ -36,6 +37,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 import utils.Document_Creation_Coach;
 
 /**
@@ -243,25 +247,24 @@ public class AfficherMemebreAdminController implements Initializable {
     @FXML
     private void bt_modifier_membre(ActionEvent event) {
         Membre t = new Membre();
-        
-        t.setCin(cb_cin_membre.getSelectionModel().getSelectedItem());
-        t.setNom(tf_nom_membre.getText());
-        t.setPrenom(tf_prenom_membre.getText());
-        t.setPassword(tf_password_membre.getText());
-        t.setEmail(tf_email_membre.getText());
-//        String teleph = tf_telephone_membre.getText();
-//        float si2 = Integer.parseInt(teleph);
-        //t.setTelephne(tf_telephone_membre.getText());
-        //t.setTaille(tf_taille_membre.get());
-       // t.setPoids(tf_poids_membre.getSelectionModel().getSelectedItem());
-        String tf_taille = tf_taille_membre.getText();
-        t.setTaille(Integer.parseInt(tf_taille));
-        String tf_poids = tf_poids_membre.getText();
-        t.setPoids(Integer.parseInt(tf_poids));
-        String telephone = tf_telephone_membre.getText();
-        t.setTelephone(Integer.parseInt(telephone));
-        ms.modifier(t);
-        afficher_membre();
+        if(verifchamps()==true)
+        {
+            t.setCin(cb_cin_membre.getSelectionModel().getSelectedItem());
+            t.setNom(tf_nom_membre.getText());
+            t.setPrenom(tf_prenom_membre.getText());
+            t.setPassword(tf_password_membre.getText());
+            t.setEmail(tf_email_membre.getText());
+            String tf_taille = tf_taille_membre.getText();
+            t.setTaille(Integer.parseInt(tf_taille));
+            String tf_poids = tf_poids_membre.getText();
+            t.setPoids(Integer.parseInt(tf_poids));
+            String telephone = tf_telephone_membre.getText();
+            t.setTelephone(Integer.parseInt(telephone));
+            ms.modifier(t);
+            afficher_membre();
+            tray = new TrayNotification("Bien", "Membre a ete modifier avec succes", NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(5));
+        }
     }
 
     @FXML
@@ -323,6 +326,63 @@ public class AfficherMemebreAdminController implements Initializable {
        
        }
      });
+    }
+    TrayNotification tray = null;
+    ControleSaisie cs =new ControleSaisie();
+    private Boolean verifchamps()
+    {
+        if(tf_nom_membre.getText().isEmpty() || tf_prenom_membre.getText().isEmpty() || tf_password_membre.getText().isEmpty() 
+                ||tf_email_membre.getText().isEmpty() || tf_taille_membre.getText().isEmpty() || tf_poids_membre.getText().isEmpty() 
+                ||tf_telephone_membre.getText().isEmpty() ) 
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Poids", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!cs.isAlpha(tf_nom_membre.getText()))
+        {
+            tray = new TrayNotification("Erreur", "Verifier votre Nom", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!cs.isAlpha(tf_prenom_membre.getText()))
+        {
+            tray = new TrayNotification("Erreur", "Verifier votre Prenom", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+//        if(!cs.isAlpha(tf_password_membre.getText()))
+//        {
+//            tray = new TrayNotification("Erreur", "Verifier votre Password", NotificationType.ERROR);
+//            tray.showAndDismiss(Duration.seconds(5));
+//            return false;
+//        }
+        if(!cs.isValidEmailAddress(tf_email_membre.getText()))
+        {
+            tray = new TrayNotification("Erreur", "Verifier votre Email", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!cs.isInte(tf_taille_membre.getText()))
+        {
+            tray = new TrayNotification("Erreur", "Verifier votre Taille", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!cs.isInte(tf_poids_membre.getText()))
+        {
+            tray = new TrayNotification("Erreur", "Verifier votre Poids", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(tf_telephone_membre.getText().length()<8|| tf_telephone_membre.getText().length()>8 ||!cs.isInte(tf_telephone_membre.getText()))
+        {
+            tray = new TrayNotification("Erreur", "Verifier votre Telephone", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        return true;
     }
 
     

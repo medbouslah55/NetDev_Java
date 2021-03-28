@@ -5,6 +5,7 @@
  */
 package edu.maindspace.gui;
 
+import com.teknikindustries.bulksms.SMS;
 import edu.maindspace.entities.Admin;
 import edu.maindspace.entities.Membre;
 import edu.maindspace.services.AdminServices;
@@ -29,6 +30,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import edu.maindspace.tools.UserSession;
+
 
 /**
  * FXML Controller class
@@ -101,9 +103,14 @@ public class LoginController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        //for SMS
+        
+        //for SMS twillo
 //        SmsSender s = new SmsSender();
 //            s.send(email, pwd);
+//        for sms bulkSMS  
+//        SMS sms =new SMS();
+//        sms.SendSMS("wing_rickyyy", "Azerty123", "test test", "+21654011100", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+//            System.out.println("test sms");
         }
         else
         {

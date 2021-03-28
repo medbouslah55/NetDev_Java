@@ -5,6 +5,8 @@
  */
 package edu.maindspace.entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author mohamedbouslah
@@ -23,7 +25,17 @@ public class ControleSaisie {
    }
     
     
-    
+    public boolean isFloat(String strNum) {
+    if (strNum == null) {
+        return false;
+    }
+    try {
+        double f = Float.parseFloat(strNum);
+    } catch (NumberFormatException nfe) {
+        return false;
+    }
+    return true;
+   }
     
  public boolean isInte(String strNum) {
     if (strNum == null) {
@@ -44,7 +56,7 @@ public boolean isAlpha(String ch){
     else 
     {int i=0;
     while (i<ch.length())
-        if(((int)ch.charAt(i) >=65 && (int)ch.charAt(i) <=90  ) ||    ((int)ch.charAt(i) >=97 && (int)ch.charAt(i) <=122  )  ||  ((int)ch.charAt(i)==20)    )
+        if(((int)ch.charAt(i) >=65 && (int)ch.charAt(i) <=90  ) ||    ((int)ch.charAt(i) >=97 && (int)ch.charAt(i) <=122  )  ||  ((int)ch.charAt(i)==32)    )
             i++;
         else 
             return false ;
@@ -64,6 +76,19 @@ public boolean isValidEmailAddress(String email) {
            return m.matches();
     }
 
+public boolean isDate(String ch){
+ if (ch== null) {
+        return false;
+    }
+    try {
+         Date d1 = Date.valueOf(ch); ;
+    } catch (NumberFormatException nfe) {
+        return false;
+    }
+    return true;
+
+
+}
 
   
 }

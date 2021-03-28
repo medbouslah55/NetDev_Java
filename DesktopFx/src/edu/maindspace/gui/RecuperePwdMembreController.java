@@ -5,6 +5,7 @@
  */
 package edu.maindspace.gui;
 
+import com.teknikindustries.bulksms.SMS;
 import edu.maindspace.services.AdminServices;
 import edu.maindspace.services.MembreServices;
 import edu.maindspace.tools.MyConnection;
@@ -100,9 +101,9 @@ public class RecuperePwdMembreController implements Initializable {
             
             UserSession.setInstance(cinn);
 //            pour SMS
-//            int numTelephone =UserSession.getInstance().getTelephone();
-//            SmsSender s = new SmsSender();
-//            s.send(String.valueOf(str),String.valueOf(numTelephone));
+//            SMS sms =new SMS();
+//            sms.SendSMS("wing_rickyyy", "Azerty123", str, "+21654011100", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+//            System.out.println("test sms");
         
         try{
             String host ="smtp.gmail.com" ;

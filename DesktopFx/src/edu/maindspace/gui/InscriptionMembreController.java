@@ -5,6 +5,7 @@
  */
 package edu.maindspace.gui;
 
+import edu.maindspace.entities.ControleSaisie;
 import edu.maindspace.entities.Membre;
 import edu.maindspace.services.MembreServices;
 import java.io.IOException;
@@ -79,33 +80,32 @@ public class InscriptionMembreController implements Initializable {
         
     }    
     MembreServices ms =new MembreServices();
+    ControleSaisie cs =new ControleSaisie();
     @FXML
     private void Inscription(ActionEvent event) {
         Membre m = new Membre();
-        if( (tf_cin_isc.getText().isEmpty())||(tf_nom_isc.getText().isEmpty())||(tf_prenom_isc.getText().isEmpty()) 
-                ||(tf_email_isc.getText().isEmpty()) ||(tf_pwd_isc.getText().isEmpty())||(tf_taille_isc.getText().isEmpty())
-                ||(tf_poids_isc.getText().isEmpty()) ||(tf_telephone_isc.getText().isEmpty())){return ;}
-        String cin = tf_cin_isc.getText();
-        m.setCin(Integer.parseInt(cin));
-        m.setNom(tf_nom_isc.getText());
-        m.setPrenom(tf_prenom_isc.getText());
-        m.setSexe((String) cb_sexe_inscri.getSelectionModel().getSelectedItem());
-        Date datee = Date.valueOf(dp_date_isc.getValue());
-        m.setDatee(datee);
-        m.setEmail(tf_email_isc.getText());
-        m.setPassword(tf_pwd_isc.getText());
-        String tf_taille = tf_taille_isc.getText();
-        m.setTaille(Integer.parseInt(tf_taille));
-        String tf_poids = tf_poids_isc.getText();
-        m.setPoids(Integer.parseInt(tf_poids));
-        String telephone = tf_telephone_isc.getText();
-        m.setTelephone(Integer.parseInt(telephone));
-  
-        ms.ajouter(m);
-        
-        TrayNotification tray = null;
-        tray = new TrayNotification("Compte cree", "Votre compte a ete avec succes ,Merci ", NotificationType.SUCCESS);
-        tray.showAndDismiss(Duration.seconds(5));
+        if(verifchamps()==true)
+        {
+            String cin = tf_cin_isc.getText();
+            m.setCin(Integer.parseInt(cin));
+            m.setNom(tf_nom_isc.getText());
+            m.setPrenom(tf_prenom_isc.getText());
+            m.setSexe((String) cb_sexe_inscri.getSelectionModel().getSelectedItem());
+            Date datee = Date.valueOf(dp_date_isc.getValue());
+            m.setDatee(datee);
+            m.setEmail(tf_email_isc.getText());
+            m.setPassword(tf_pwd_isc.getText());
+            String tf_taille = tf_taille_isc.getText();
+            m.setTaille(Integer.parseInt(tf_taille)); 
+            String tf_poids = tf_poids_isc.getText();
+            m.setPoids(Integer.parseInt(tf_poids));
+            String telephone = tf_telephone_isc.getText();
+            m.setTelephone(Integer.parseInt(telephone));
+            ms.ajouter(m);
+            
+            TrayNotification tray = null;
+            tray = new TrayNotification("Compte cree", "Votre compte a ete avec succes ,Merci ", NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(5));
         
         try{
             String host ="smtp.gmail.com" ;
@@ -143,13 +143,18 @@ public class InscriptionMembreController implements Initializable {
         }catch(Exception ex)
         {
             System.out.println(ex.getMessage());
+        }
+        }
+}        
+        
+    
         
         
+  
         
         
-    }
-        
-    }
+            
+    
     
 
     @FXML
@@ -160,6 +165,95 @@ public class InscriptionMembreController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    TrayNotification tray = null;
+    private Boolean verifchamps(){
+        
+        if( (tf_cin_isc.getText().isEmpty())||(tf_nom_isc.getText().isEmpty())||(tf_prenom_isc.getText().isEmpty()) 
+                ||(tf_email_isc.getText().isEmpty()) ||(tf_pwd_isc.getText().isEmpty())||(tf_taille_isc.getText().isEmpty())
+                ||(tf_poids_isc.getText().isEmpty()) ||(tf_telephone_isc.getText().isEmpty()))
+        {
+            
+            
+            tray = new TrayNotification("Erreur", "Il faut remplire tous les champs ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!cs.isInte(tf_cin_isc.getText()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre cin ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!cs.isAlpha(tf_nom_isc.getText()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Nom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!cs.isAlpha(tf_prenom_isc.getText()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Prenom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        
+        
+        
+        if(!cs.isDate(dp_date_isc.getValue().toString()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Date de naissence", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!cs.isValidEmailAddress(tf_email_isc.getText()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Email", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!cs.isAlpha(tf_pwd_isc.getText()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Password", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!cs.isInte(tf_taille_isc.getText()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Taille", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!cs.isInte(tf_poids_isc.getText()))
+        {
+             
+            tray = new TrayNotification("Erreur", "Verifier votre Poids", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(tf_telephone_isc.getText().length()<8 ||tf_telephone_isc.getText().length()>8||!cs.isInte(tf_telephone_isc.getText()))
+        {
+            
+            tray = new TrayNotification("Erreur", "Verifier votre Telephone", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        return true;
     }
 
     

@@ -6,6 +6,7 @@
 package edu.maindspace.gui;
 
 import edu.maindspace.entities.Coach;
+import edu.maindspace.entities.ControleSaisie;
 import edu.maindspace.services.CoachServices;
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +25,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -107,7 +111,9 @@ public class AjouterCoachAdminController implements Initializable {
     @FXML
     private void AjouterCoach(ActionEvent event) {
         Coach c = new Coach();
-        String cin = tf_cin_coach.getText();
+        if(verifchamps()==true)
+        {
+            String cin = tf_cin_coach.getText();
         c.setCin(Integer.parseInt(cin));
         c.setNom(tf_nom_coach.getText());
         c.setPrenom(tf_prenom_coach.getText());
@@ -116,7 +122,51 @@ public class AjouterCoachAdminController implements Initializable {
         c.setDatee(datee);
         
         cs.ajouter(c);
+        tray = new TrayNotification("Succes", "le Coach a ete ajouter avec succes  ", NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(5));
+        }
+        
     }
+    ControleSaisie css =new ControleSaisie();
+    TrayNotification tray = null;
+    private Boolean verifchamps()
+    {
+        if(tf_cin_coach.getText().isEmpty() || tf_nom_coach.getText().isEmpty() 
+                || tf_prenom_coach.getText().isEmpty() || dp_date_coach.getValue().toString().isEmpty() )
+        {
+            
+            tray = new TrayNotification("Error", "Verifier votre champs  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!css.isInte(tf_cin_coach.getText()))
+        {
+            tray = new TrayNotification("Error", "Verifier votre Cin  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!css.isAlpha(tf_nom_coach.getText()))
+        {
+            tray = new TrayNotification("Error", "Verifier votre Nom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!css.isAlpha(tf_prenom_coach.getText()))
+        {
+            tray = new TrayNotification("Error", "Verifier votre Prenom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!css.isDate(dp_date_coach.getValue().toString()))
+        {
+            tray = new TrayNotification("Error", "Verifier votre Nom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        return true;
+    }
+     
 
     
     

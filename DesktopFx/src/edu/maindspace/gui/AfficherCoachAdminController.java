@@ -6,6 +6,7 @@
 package edu.maindspace.gui;
 
 import edu.maindspace.entities.Coach;
+import edu.maindspace.entities.ControleSaisie;
 import edu.maindspace.services.CoachServices;
 import java.awt.Desktop;
 import java.io.File;
@@ -36,6 +37,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 import utils.Document_Creation_Coach;
 
 /**
@@ -189,14 +193,15 @@ public class AfficherCoachAdminController implements Initializable {
     @FXML
     private void bt_modifier_coach(ActionEvent event) {
         Coach t = new Coach();
-        
-        t.setCin(cb_modifier_coach.getSelectionModel().getSelectedItem());
-        t.setNom(tf_nom_modifier_coach.getText());
-        t.setPrenom(tf_prenom_modifier_coach.getText());
-        
-        
-        cs.modifier(t);
-        afficher_coach();
+        if(verifchamps()==true)
+        {
+            t.setCin(cb_modifier_coach.getSelectionModel().getSelectedItem());
+            t.setNom(tf_nom_modifier_coach.getText());
+            t.setPrenom(tf_prenom_modifier_coach.getText());
+
+            cs.modifier(t);
+            afficher_coach();
+        }
     }
 
     @FXML
@@ -251,15 +256,32 @@ public class AfficherCoachAdminController implements Initializable {
     Node root = this.tv_afficher_coach;
            job.printPage(root);
            job.endJob();
-            
-       
-    
-        
-        
+     
     }
-    
-    
-    
+    }
+    ControleSaisie css =new ControleSaisie();
+    private Boolean verifchamps()
+    {
+        if(tf_nom_modifier_coach.getText().isEmpty() || tf_prenom_modifier_coach.getText().isEmpty())
+        {
+            return false;
+        }
+        
+        if(!css.isAlpha(tf_nom_modifier_coach.getText()))
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Erreur", "Verifier votre Nom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        if(!css.isAlpha(tf_prenom_modifier_coach.getText()))
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Erreur", "Verifier votre Prenom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        return true;
     }
 
     
