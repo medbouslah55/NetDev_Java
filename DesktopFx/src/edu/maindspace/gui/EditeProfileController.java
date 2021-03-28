@@ -5,6 +5,7 @@
  */
 package edu.maindspace.gui;
 
+import edu.maindspace.entities.ControleSaisie;
 import edu.maindspace.entities.Membre;
 import edu.maindspace.entities.User;
 import edu.maindspace.services.MembreServices;
@@ -16,6 +17,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -53,7 +57,7 @@ public class EditeProfileController implements Initializable {
         tf_nom.setText(UserSession.getInstance().getLoggedUser().getNom());
         tf_prenom.setText(UserSession.getInstance().getLoggedUser().getPrenom());
         tf_email.setText(UserSession.getInstance().getLoggedUser().getEmail());
-        tf_pwd.setText(UserSession.getInstance().getLoggedUser().getPassword());
+        //tf_pwd.setText(UserSession.getInstance().getLoggedUser().getPassword());
         
         int tell =UserSession.getInstance().getLoggedUser().getTelephone();
         String tel =Integer.toString(tell);
@@ -73,6 +77,8 @@ public class EditeProfileController implements Initializable {
     @FXML
     private void Modifier_profile(ActionEvent event) {
         Membre t = new Membre();
+        if(verifchamps()==true)
+        {
         t.setCin(UserSession.getInstance().getLoggedUser().getCin());
         t.setNom(tf_nom.getText());
         t.setPrenom(tf_prenom.getText());
@@ -85,11 +91,71 @@ public class EditeProfileController implements Initializable {
         String telephone = tf_telephone.getText();
         t.setTelephone(Integer.parseInt(telephone));
         ms.modifier(t);
-        
+        }
     }
 
     @FXML
     private void retour_menu(ActionEvent event) {
     }
     
+    ControleSaisie cs =new ControleSaisie();
+    TrayNotification tray = null;
+    private Boolean verifchamps(){
+        if(tf_nom.getText().isEmpty() || tf_prenom.getText().isEmpty() 
+                || tf_pwd.getText().isEmpty() || tf_email.getText().isEmpty() 
+                || tf_taille.getText().isEmpty() || tf_poids.getText().isEmpty() 
+                || tf_telephone.getText().isEmpty())
+        {
+            tray = new TrayNotification("Erreur", "Il faut remplire tous les champs ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        
+        if(!cs.isAlpha(tf_nom.getText()))
+        {
+            tray = new TrayNotification("Erreur", "verifier votre nom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        
+        if(!cs.isAlpha(tf_prenom.getText()))
+        {
+            tray = new TrayNotification("Erreur", "verifier votre Prenom ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        if(!cs.isValidEmailAddress(tf_email.getText()))
+        {
+            tray = new TrayNotification("Erreur", "verifier votre Email ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        if(!cs.isInte(tf_taille.getText()))
+        {
+            tray = new TrayNotification("Erreur", "verifier votre taille ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        if(!cs.isInte(tf_poids.getText()))
+        {
+            tray = new TrayNotification("Erreur", "verifier votre Poids ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        if(!cs.isInte(tf_telephone.getText()))
+        {
+            tray = new TrayNotification("Erreur", "verifier votre Telephone ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        
+        return true;
+    }
 }

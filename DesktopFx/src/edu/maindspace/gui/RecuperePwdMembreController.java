@@ -6,6 +6,7 @@
 package edu.maindspace.gui;
 
 import com.teknikindustries.bulksms.SMS;
+import edu.maindspace.entities.ControleSaisie;
 import edu.maindspace.services.AdminServices;
 import edu.maindspace.services.MembreServices;
 import edu.maindspace.tools.MyConnection;
@@ -86,17 +87,20 @@ public class RecuperePwdMembreController implements Initializable {
     
     @FXML
     private void verifier_cin(ActionEvent event) throws SQLException {
-        String cin = tf_cin_recu_pwd.getText();
         
-        int cinn = Integer.parseInt(cin);
-        if(ms.RecupPwd(cinn)==1){
+        if(verifchampsCin()==true)
+        {
+            String cin = tf_cin_recu_pwd.getText();
+            int cinn = Integer.parseInt(cin);
+        
+            if(ms.RecupPwd(cinn)==1){
             
                 //pour afficher le code generateur dans notif
                 String str = Integer.toString(x);
 
-        TrayNotification tray = null;
-        tray = new TrayNotification("bien", str, NotificationType.SUCCESS);
-        tray.showAndDismiss(Duration.seconds(5));
+//        TrayNotification tray = null;
+//        tray = new TrayNotification("bien", str, NotificationType.SUCCESS);
+//        tray.showAndDismiss(Duration.seconds(5));
             
             
             UserSession.setInstance(cinn);
@@ -157,29 +161,78 @@ public class RecuperePwdMembreController implements Initializable {
         tray.showAndDismiss(Duration.seconds(5));
         }
     }
+    }
 
     @FXML
     private void conf_pwd(ActionEvent event) throws SQLException {
+        
+    if(verifchamps()==true)
+    {
         int code=x;
-    String codeF = tf_code_conf.getText();
-    int cf=(Integer.parseInt(codeF));
+        String codeF = tf_code_conf.getText();
+        int cf=(Integer.parseInt(codeF));
         System.out.println(code);
-    
-              if (cf == code) {
-                   System.out.println("dkhal");
+              if (cf == code) 
+              {
+                   System.out.println("bien");
                //String nvmdp=tf_nv_pwd.getText();
                String nvmdp=DigestUtils.shaHex(tf_nv_pwd.getText());
                String requete="UPDATE membre SET password='"+nvmdp+"' WHERE cin = '"+tf_cin_recu_pwd.getText()+"'";
                   PreparedStatement pst = 
                     new MyConnection().cn.prepareStatement(requete);
                   pst.executeUpdate();
-                  
-              
-                       
+              } 
+    }         
+    }                  
  
         
-        }
+        
+    
+    ControleSaisie cs =new ControleSaisie();
+    private Boolean verifchampsCin()
+    { if(tf_cin_recu_pwd.getText().isEmpty())
+    {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "verifier votre Cin  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+        return false;
     }
+    if(!cs.isInte(tf_cin_recu_pwd.getText()))
+    {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "verifier votre Cin , Cin est un numero  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+        return false;
+    }
+        return true;
+    }
+    
+    private Boolean verifchamps()
+    { if(tf_code_conf.getText().isEmpty() || tf_nv_pwd.getText().isEmpty())
+    {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "il faut remplire les champs   ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+        return false;
+    }
+    if(!cs.isInte(tf_code_conf.getText()))
+    {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "verifier votre code , c'est un numero  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+        return false;
+    }
+    if(!cs.isAlpha(tf_nv_pwd.getText()))
+    {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "verifier votre password  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+        return false;
+    }
+    
+        return true;
+    }
+    
 
     
     

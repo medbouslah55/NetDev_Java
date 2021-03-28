@@ -7,6 +7,7 @@ package edu.maindspace.gui;
 
 import com.teknikindustries.bulksms.SMS;
 import edu.maindspace.entities.Admin;
+import edu.maindspace.entities.ControleSaisie;
 import edu.maindspace.entities.Membre;
 import edu.maindspace.services.AdminServices;
 import edu.maindspace.services.MembreServices;
@@ -67,6 +68,8 @@ public class LoginController implements Initializable {
     AdminServices as =new AdminServices();
     @FXML
     private void login_membre(ActionEvent event) throws SQLException, IOException {
+        if(verifchampsMembre()==true)
+        {
         String email = tf_login_email_membre.getText();
         String pwd = DigestUtils.shaHex(tf_login_pass_membre.getText());//crypt
         UserSession.setInstance(email);
@@ -89,11 +92,14 @@ public class LoginController implements Initializable {
             tray = new TrayNotification("Error", "Email ou password incorrect  ", NotificationType.ERROR);
             tray.showAndDismiss(Duration.seconds(5));
         }
+        }
         
     }
 
     @FXML
     private void login_admin(ActionEvent event) throws IOException {
+        if(verifchampsAdmin()==true)
+        {
         String email = tf_login_email_admin.getText();
         String pwd = tf_login_pass_admin.getText();
         if(as.loginAdmin(email, pwd)==1){
@@ -118,6 +124,7 @@ public class LoginController implements Initializable {
         tray = new TrayNotification("Error", "Email ou password incorrect  ", NotificationType.ERROR);
         tray.showAndDismiss(Duration.seconds(5));
         }
+        }
         
         
     }
@@ -140,6 +147,53 @@ public class LoginController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    ControleSaisie css =new ControleSaisie();
+    private Boolean verifchampsMembre()
+    {
+        if(tf_login_email_membre.getText().isEmpty() || tf_login_pass_membre.getText().isEmpty())
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "Email ou password incorrect  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!css.isValidEmailAddress(tf_login_email_membre.getText()))
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "verifier votre email  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        
+        
+        return true;
+        
+    }
+    private Boolean verifchampsAdmin()
+    {
+        if(tf_login_email_admin.getText().isEmpty() || tf_login_pass_admin.getText().isEmpty())
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "Email ou password incorrect  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+        }
+        
+        if(!css.isValidEmailAddress(tf_login_email_admin.getText()))
+        {
+            TrayNotification tray = null;
+            tray = new TrayNotification("Error", "verifier votre email  ", NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            return false;
+            
+        }
+        
+        
+        return true;
+        
     }
     
 }
