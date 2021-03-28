@@ -104,9 +104,11 @@ public class RecuperePwdMembreController implements Initializable {
             
             
             UserSession.setInstance(cinn);
-//            pour SMS
+            //pour SMS
 //            SMS sms =new SMS();
-//            sms.SendSMS("wing_rickyyy", "Azerty123", str, "+21654011100", "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
+//            String num_tel ="+216"+ UserSession.getInstance().getTelephone();
+//            System.out.println(num_tel);
+//            sms.SendSMS("mohamedd55", "aRTBEN55991044", str, num_tel, "https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
 //            System.out.println("test sms");
         
         try{
