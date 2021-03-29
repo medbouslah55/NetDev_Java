@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.hamza.PaiementController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="601.0" style="-fx-background-color: #fde3a7;">
+         <children>
+            <Label layoutX="23.0" layoutY="113.0" prefHeight="27.0" prefWidth="192.0" text="N° de la Carte Banquaire :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="248.0" prefHeight="27.0" prefWidth="61.0" text="Prix :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="292.0" prefHeight="27.0" prefWidth="164.0" text="Code Securite (CVC) :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="208.0" prefHeight="27.0" prefWidth="80.0" text="Exp_mois :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="159.0" prefHeight="27.0" prefWidth="125.0" text="Exp_annee :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="valider" layoutX="353.0" layoutY="409.0" prefHeight="45.0" prefWidth="151.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Valider" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="Annuler" layoutX="44.0" layoutY="409.0" prefHeight="45.0" prefWidth="151.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Annuler" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <VBox layoutX="239.0" layoutY="113.0" prefHeight="294.0" prefWidth="245.0" spacing="20.0">
+               <children>
+                  <TextField fx:id="carte" prefHeight="25.0" prefWidth="231.0" style="-fx-background-radius: 1em;" />
+                  <TextField fx:id="year" prefHeight="26.0" prefWidth="126.0" style="-fx-background-radius: 1em;" />
+                  <TextField fx:id="month" prefHeight="26.0" prefWidth="126.0" style="-fx-background-radius: 1em;" />
+                  <TextField fx:id="prix" prefHeight="26.0" prefWidth="126.0" style="-fx-background-radius: 1em;" />
+                  <TextField fx:id="cvc" prefHeight="26.0" prefWidth="126.0" style="-fx-background-radius: 1em;" />
+               </children>
+            </VBox>
+            <Button layoutX="48.0" layoutY="24.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #542ae8#542ae8;">
+               <graphic>
+                  <OctIconView fill="#f5f4f4" glyphName="ARROW_LEFT" size="25" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

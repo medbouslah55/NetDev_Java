@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="1186.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.hamza.InterfacereservationuserController">
+   <children>
+      <TableView fx:id="tvreservations" layoutX="250.0" layoutY="178.0" onMouseClicked="#selection" prefHeight="247.0" prefWidth="645.0" style="-fx-border-color: #542ae8#542ae8;">
+         <columns>
+            <TableColumn fx:id="collnom" prefWidth="111.0" sortable="false" text="Nom" />
+            <TableColumn fx:id="collprenom" prefWidth="111.0" sortable="false" text="Prenom" />
+            <TableColumn fx:id="collcin" prefWidth="141.0" sortable="false" text="Cin Membre" />
+            <TableColumn fx:id="colldate" prefWidth="144.0" sortable="false" text="Date activite " />
+            <TableColumn fx:id="collnbrplace" maxWidth="400.0" prefWidth="136.0" sortable="false" text="Nombre places" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnajouter" layoutX="618.0" layoutY="455.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="43.0" prefWidth="92.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Ajouter" textFill="#fff3f3">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Button fx:id="btnmodifier" layoutX="993.0" layoutY="436.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="43.0" prefWidth="92.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Modifier" textFill="#f8f6f6">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnsupprimer" layoutX="760.0" layoutY="455.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="43.0" prefWidth="100.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnactualiser" layoutX="570.0" layoutY="147.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" textFill="#f8f6f6">
+         <graphic>
+            <MaterialDesignIconView fill="#fffefe" glyphName="REFRESH" size="20" />
+         </graphic>
+      </Button>
+      <TextField fx:id="tfrecherche" layoutX="412.0" layoutY="149.0" onKeyReleased="#list" promptText="Recherche" style="-fx-background-radius: 1em;" />
+      <Button fx:id="btnpdf" layoutX="860.0" layoutY="144.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="31.0" prefWidth="30.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" textFill="#f5f5f5">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <TextField fx:id="tfnbrplace" layoutX="942.0" layoutY="375.0" prefHeight="25.0" prefWidth="203.0" promptText="Entrer le nombre de place a reserver" style="-fx-background-radius: 1em;" />
+      <TextField fx:id="tfcin" layoutX="944.0" layoutY="276.0" prefHeight="25.0" prefWidth="203.0" promptText="Entrer votre Cin" style="-fx-background-radius: 1em;" />
+      <TextField fx:id="tfnom" layoutX="946.0" layoutY="177.0" prefHeight="25.0" prefWidth="203.0" promptText="Nom" style="-fx-background-radius: 1em;" />
+      <TextField fx:id="tfprenom" layoutX="944.0" layoutY="224.0" prefHeight="25.0" prefWidth="203.0" promptText="Prenom" style="-fx-background-radius: 1em;" />
+      <Pane layoutY="137.0" prefHeight="377.0" prefWidth="246.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;" />
+      <Pane layoutX="245.0" layoutY="1.0" prefHeight="138.0" prefWidth="941.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="897.0" layoutY="32.0" onDragDetected="#close" onMouseClicked="#close" size="30" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="310.0" layoutY="22.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="301.0" text="Reservation" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="138.0" prefWidth="246.0" style="-fx-background-color: fabe58;">
+         <children>
+            <ImageView fitHeight="94.0" fitWidth="155.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/HAMZA/Downloads/Logo.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="96.0" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ComboBox fx:id="typeRecherche" layoutX="250.0" layoutY="149.0" onAction="#list" prefWidth="150.0" />
+      <ComboBox fx:id="typetri" layoutX="702.0" layoutY="147.0" onAction="#listtri" prefHeight="25.0" prefWidth="150.0" />
+      <JFXDatePicker fx:id="tfdate" defaultColor="#410094" layoutX="944.0" layoutY="326.0" prefHeight="25.0" prefWidth="203.0" />
+      <JFXDatePicker fx:id="tfdeb" layoutX="262.0" layoutY="437.0" promptText="Date debut" />
+      <JFXDatePicker fx:id="tffin" layoutX="262.0" layoutY="479.0" promptText="Date fin" />
+      <Button fx:id="btnrecherchedate" layoutX="453.0" layoutY="464.0" mnemonicParsing="false" onAction="#datedebutfin" style="-fx-background-color: #542ae8#542ae8;">
+         <graphic>
+            <OctIconView fill="#fcf6f6" glyphName="SEARCH" />
+         </graphic>
+      </Button>
+      <MaterialDesignIconView fill="WHITE" glyphName="PRINTER" layoutX="865.0" layoutY="169.0" size="20" text="" wrappingWidth="12.0" />
+      <Label layoutX="636.0" layoutY="151.0" text="Trie selon :" />
+   </children>
+</AnchorPane>

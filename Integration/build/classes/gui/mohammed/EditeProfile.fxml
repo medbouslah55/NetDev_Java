@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.mohammed.EditeProfileController">
+    <children>
+        <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fde3a7;">
+            <children>
+                <TextField fx:id="tf_taille" layoutX="264.0" layoutY="197.0" promptText="Taille" />
+                <TextField fx:id="tf_email" layoutX="264.0" layoutY="97.0" promptText="Email" />
+                <TextField fx:id="tf_poids" layoutX="264.0" layoutY="248.0" promptText="Poids" />
+                <TextField fx:id="tf_telephone" layoutX="38.0" layoutY="197.0" promptText="Telephone" />
+                <TextField fx:id="tf_prenom" layoutX="38.0" layoutY="145.0" promptText="Prenom" />
+                <TextField fx:id="tf_nom" layoutX="38.0" layoutY="97.0" promptText="Nom" />
+                <Label layoutX="35.0" layoutY="43.0" prefHeight="35.0" prefWidth="231.0" text="Modifier votre Profile">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="bt_Modif" layoutX="181.0" layoutY="343.0" mnemonicParsing="false" onAction="#Modifier_profile" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: fabe58;" text="Modifier" />
+                <ImageView fitHeight="82.0" fitWidth="119.0" layoutX="480.0" layoutY="2.0">
+                    <image>
+                        <Image url="@../../images/Logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="306.0" layoutY="17.0" prefHeight="44.0" prefWidth="180.0" text="MindSpace">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                <Button fx:id="bt_retour_inscri" layoutX="515.0" layoutY="355.0" mnemonicParsing="false" onAction="#retour_menu" style="-fx-background-color: fabe58;" text="Retour" />
+                <PasswordField fx:id="tf_pwd" layoutX="264.0" layoutY="145.0" promptText="Password" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

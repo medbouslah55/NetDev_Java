@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.cyrine.AjouterCentreController">
+   <children>
+      <VBox layoutX="14.0" layoutY="73.0" prefHeight="234.0" prefWidth="96.0" spacing="20.0">
+         <children>
+            <Label fx:id="lbCentre" text="Nom centre :" />
+            <Label fx:id="lbTel" text="Téléphone :" />
+            <Label fx:id="lbMail" text="Mail :" />
+            <Label fx:id="lbAdr" text="Adresse :" />
+            <Label fx:id="lbType" text="Type :" />
+         </children>
+      </VBox>
+      <VBox layoutX="110.0" layoutY="73.0" prefHeight="234.0" prefWidth="188.0" spacing="10.0">
+         <children>
+            <TextField fx:id="ftNom" />
+            <TextField fx:id="ftTel" />
+            <TextField fx:id="ftMail" />
+            <TextField fx:id="ftAdr" />
+            <TextField fx:id="ftType" />
+         </children>
+      </VBox>
+      <Label layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="198.0" text="Ajouter centre" underline="true">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAjout" layoutX="459.0" layoutY="325.0" mnemonicParsing="false" onAction="#AddCentre" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

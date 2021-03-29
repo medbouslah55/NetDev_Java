@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: FFFF; -fx-border-color: #542ae8; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.firas.MenuReclamationController">
+   <children>
+      <Pane layoutX="254.0" layoutY="-2.0" prefHeight="129.0" prefWidth="941.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="897.0" layoutY="32.0" onMouseClicked="#close" size="30" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="305.0" layoutY="21.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="301.0" text="Réclamation" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="-1.0" layoutY="127.0" prefHeight="377.0" prefWidth="256.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;" AnchorPane.leftAnchor="-1.0" />
+      <Button fx:id="idrec" alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="219.0" mnemonicParsing="false" onAction="#allerVersReclamation" prefHeight="67.0" prefWidth="341.0" style="-fx-background-color: #715BE8; -fx-border-color: FFFFFF; -fx-border-width: 0; -fx-border-style: solid;" text="Réclamer" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="PLUS_SQUARE_ALT" size="50" text="" wrappingWidth="341.00000467151403" />
+         </graphic>
+      </Button>
+      <Button fx:id="conrec" contentDisplay="CENTER" layoutX="538.0" layoutY="323.0" mnemonicParsing="false" onAction="#listeReclamation" prefHeight="67.0" prefWidth="370.0" style="-fx-background-color: #715BE8;" text="Consulter Mes Réclamations" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="LIST_ALT" size="30" textAlignment="RIGHT" wrappingWidth="312.9999959617853" />
+         </graphic>
+      </Button>
+      <Pane layoutX="-1.0" layoutY="-2.0" prefHeight="129.0" prefWidth="256.0" style="-fx-background-color: fabe58;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-14.0" prefHeight="129.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Button fx:id="btnback" layoutX="44.0" layoutY="453.0" mnemonicParsing="false" onAction="#gomenu" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #542ae8#542ae8;" text="Retourner" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="#f5f2f2" glyphName="ARROW_CIRCLE_LEFT" size="30" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

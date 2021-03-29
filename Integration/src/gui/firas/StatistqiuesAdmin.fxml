@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.firas.StatistqiuesAdminController">
+   <children>
+      <BarChart fx:id="chartbar" layoutX="139.0" layoutY="130.0" prefHeight="500.0" prefWidth="520.0">
+        <xAxis>
+          <CategoryAxis label="Réclamations" side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" label="Type Réclamations" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Pane layoutX="-1.0" layoutY="129.0" prefHeight="500.0" prefWidth="139.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <Button fx:id="btnback" layoutX="1.0" layoutY="436.0" mnemonicParsing="false" onAction="#backmenu" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #542ae8#542ae8;" text="Retourner" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="#f5f2f2" glyphName="ARROW_CIRCLE_LEFT" size="30" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="139.0" prefHeight="129.0" prefWidth="1045.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="1001.0" layoutY="33.0" onMouseClicked="#close" size="30" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="243.0" layoutY="22.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="559.0" text="Statistique Selon Type De Réclamation" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <BarChart fx:id="charetat" layoutX="664.0" layoutY="130.0" prefHeight="500.0" prefWidth="520.0">
+        <xAxis>
+          <CategoryAxis label="Réclamations" side="BOTTOM" fx:id="xetat" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yetat" label="Etat Réclamations" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Pane layoutX="-1.0" prefHeight="129.0" prefWidth="140.0" style="-fx-background-color: fabe58;">
+         <children>
+            <VBox alignment="CENTER" prefHeight="129.0" prefWidth="121.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/C:/Users/Firas/Desktop/Integration/src/images/Logo%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

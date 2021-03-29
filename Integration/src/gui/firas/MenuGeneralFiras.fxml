@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.firas.MenuGeneralFirasController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: FFFF; -fx-border-color: #542ae8; -fx-border-width: 0;">
+               <children>
+                  <Pane layoutX="254.0" layoutY="-2.0" prefHeight="129.0" prefWidth="941.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+                     <children>
+                        <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="897.0" layoutY="32.0" onMouseClicked="#close" size="30" />
+                        <Label alignment="CENTER" contentDisplay="TOP" layoutX="166.0" layoutY="22.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="610.0" text="Gestion des Réclamations et Abonnements" textFill="#542ae8">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="-1.0" layoutY="127.0" prefHeight="377.0" prefWidth="256.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;" AnchorPane.leftAnchor="-1.0">
+                     <children>
+                        <Button fx:id="btnback" layoutX="59.0" layoutY="322.0" mnemonicParsing="false" onAction="#backtomenu" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #542ae8#542ae8;" text="Retourner" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIconView fill="#f5f2f2" glyphName="ARROW_CIRCLE_LEFT" size="30" />
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="-1.0" layoutY="-2.0" prefHeight="129.0" prefWidth="256.0" style="-fx-background-color: fabe58;">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="-14.0" prefHeight="129.0" prefWidth="273.0">
+                           <children>
+                              <ImageView fitHeight="94.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/Logo.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <VBox layoutX="289.0" layoutY="210.0" prefHeight="212.0" prefWidth="370.0" spacing="40.0">
+                     <children>
+                        <Button fx:id="idrec" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#allerVersGestionReclamation" prefHeight="67.0" prefWidth="371.0" style="-fx-background-color: #715BE8; -fx-border-color: FFFFFF; -fx-border-width: 0; -fx-border-style: solid;" text="Gestion Des Réclamations" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <MaterialDesignIconView fill="WHITE" glyphName="SETTINGS" size="50" text="" textAlignment="JUSTIFY" wrappingWidth="329.0" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="conrec" contentDisplay="CENTER" mnemonicParsing="false" onAction="#allerversStatistique" prefHeight="67.0" prefWidth="370.0" style="-fx-background-color: #715BE8;" text="Statistique" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="BAR_CHART_ALT" size="30" wrappingWidth="333.2857131958008" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="763.0" layoutY="210.0" prefHeight="200.0" prefWidth="370.0" spacing="40.0">
+                     <children>
+                        <Button fx:id="btnplus" alignment="CENTER" mnemonicParsing="false" onAction="#goajouter" prefHeight="67.0" prefWidth="370.0" style="-fx-background-color: #715BE8 #715BE8;" text="Ajouter Type Abonnement" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS_CIRCLE" size="40" wrappingWidth="36.28571319580078" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnliste" mnemonicParsing="false" onAction="#golist" prefHeight="64.0" prefWidth="371.0" style="-fx-background-color: #715BE8 #715BE8;" text="Liste  Des Abonnements" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="#fcf5f5" glyphName="LIST" size="30" text="" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

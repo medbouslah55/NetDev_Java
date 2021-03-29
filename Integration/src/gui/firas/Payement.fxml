@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.firas.PayementController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="654.0" prefWidth="395.0" style="-fx-background-color: #fde3a7;" styleClass="mainFxmlClass">
+         <children>
+            <VBox layoutX="62.0" layoutY="240.0" prefHeight="175.0" prefWidth="273.0" spacing="17.0">
+               <children>
+                  <TextField fx:id="tfclient" alignment="CENTER" prefHeight="31.0" prefWidth="238.0" promptText="Client" />
+                  <TextField fx:id="tfmail" alignment="CENTER" promptText="E-mail" />
+                  <TextField fx:id="tfcarte" alignment="CENTER" promptText="N°Carte" />
+                  <TextField fx:id="tfcvv" alignment="CENTER" promptText="CVV2/Identifiant Internet" />
+               </children>
+            </VBox>
+            <Button fx:id="valider" layoutX="225.0" layoutY="486.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="109.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Payer" textFill="#f5f3f3">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="105.0" fitWidth="139.0" layoutX="129.0" layoutY="3.0">
+               <image>
+                  <Image url="@../../images/Logo%20(1).png" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" layoutX="63.0" layoutY="428.0" prefHeight="39.0" prefWidth="273.0" spacing="5.0">
+               <children>
+                  <ComboBox fx:id="combomois" prefHeight="33.0" prefWidth="122.0" style="-fx-border-color: #542ae8;" />
+                  <Label prefHeight="19.0" prefWidth="16.0" text="/">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboyear" prefHeight="33.0" prefWidth="122.0" style="-fx-border-color: #542ae8;" />
+               </children>
+            </HBox>
+            <MaterialDesignIconView fill="#542ae8" glyphName="EMAIL" layoutX="342.0" layoutY="312.0" size="30" />
+            <MaterialDesignIconView fill="#542ae8" glyphName="ACCOUNT" layoutX="342.0" layoutY="266.0" size="30" />
+            <MaterialDesignIconView fill="#542ae8" glyphName="CREDIT_CARD" layoutX="342.0" layoutY="363.0" size="30" />
+            <MaterialDesignIconView fill="#542ae8" glyphName="LOCK" layoutX="342.0" layoutY="410.0" size="30" />
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="357.0" layoutY="40.0" onMouseClicked="#close" size="30" />
+            <ImageView fitHeight="75.0" fitWidth="273.0" layoutX="67.0" layoutY="565.0">
+               <image>
+                  <Image url="file:/C:/Users/Firas/Desktop/Integration/src/images/visa+master.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="97.0" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="63.0" layoutY="175.0" text="Montant :">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="206.0" text="Date :">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="163.0" layoutY="175.0" textAlignment="CENTER" />
+            <Label fx:id="dateaffiche" layoutX="163.0" layoutY="206.0" textAlignment="CENTER" />
+            <Button fx:id="annulerbtn" layoutX="72.0" layoutY="486.0" mnemonicParsing="false" onAction="#goacheterabonnement" prefHeight="46.0" prefWidth="109.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Anuuler" textFill="#f5f3f3">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <JFXTextField fx:id="tfprix" layoutX="141.0" layoutY="165.0" prefHeight="31.0" prefWidth="68.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

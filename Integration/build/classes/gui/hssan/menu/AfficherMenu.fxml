@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.hssan.menu.AfficherMenuController">
+   <children>
+      <Pane prefHeight="483.0" prefWidth="670.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <children>
+            <TableView fx:id="tableview" layoutX="10.0" layoutY="66.0" prefHeight="350.0" prefWidth="651.0">
+              <columns>
+                  <TableColumn fx:id="id" minWidth="0.0" prefWidth="0.0" text="id" />
+                  <TableColumn fx:id="regime" prefWidth="75.0" text="Regime" />
+                <TableColumn fx:id="desc" prefWidth="105.0" text="Description" />
+                  <TableColumn fx:id="num_jour" prefWidth="88.0" text="Num Jours" />
+                  <TableColumn fx:id="matin" prefWidth="53.0" text="Matin" />
+                  <TableColumn fx:id="image_mat" prefWidth="78.0" text="Image" />
+                  <TableColumn fx:id="dej" prefWidth="71.0" text="Dejeuner" />
+                  <TableColumn fx:id="image_dej" prefWidth="66.0" text="Image" />
+                  <TableColumn fx:id="dinner" prefWidth="66.0" text="Dinner" />
+                  <TableColumn fx:id="image_dinner" prefWidth="57.0" text="Image" />
+                  <TableColumn fx:id="total_cal" prefWidth="66.0" text="Total Calories" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnSupp" layoutX="443.0" layoutY="430.0" onAction="#supprimer" prefHeight="39.0" prefWidth="155.0" style="-fx-background-color: red; -fx-background-radius: 30px;" text="  Supprimer" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="filterField" layoutX="190.0" layoutY="18.0" prefHeight="31.0" prefWidth="330.0" style="-fx-background-radius: 30px;" />
+            <Button fx:id="btnModif" layoutX="98.0" layoutY="430.0" onAction="#modifier" prefHeight="39.0" prefWidth="155.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="  Modifier" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="pdf" layoutX="555.0" layoutY="18.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-radius: 30px;" text="   PDF" />
+            <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="114.0" layoutY="456.0" size="15" />
+            <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="452.0" layoutY="456.0" size="15" />
+            <FontAwesomeIconView fill="#000dff" glyphName="SEARCH" layoutX="78.0" layoutY="38.0" size="15" />
+            <FontAwesomeIconView fill="RED" glyphName="FILE_PDF_ALT" layoutX="568.0" layoutY="39.0" size="15" />
+            <Label layoutX="98.0" layoutY="23.0" text="Rechercher :" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

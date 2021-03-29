@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="1186.0" style="-fx-background-color: FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.firas.AjouterAbonnementAdminController">
+   <children>
+      <VBox layoutX="429.0" layoutY="164.0" prefHeight="121.0" prefWidth="248.0" spacing="40.0">
+         <children>
+            <TextField fx:id="tftitre" alignment="CENTER" prefHeight="31.0" prefWidth="218.0" promptText="Titre" style="-fx-border-color: #542ae8;" />
+            <TextField fx:id="tftype" alignment="CENTER" prefHeight="31.0" prefWidth="218.0" promptText="Type" style="-fx-border-color: #542ae8;" />
+            <TextField fx:id="tfprix" alignment="CENTER" prefHeight="31.0" prefWidth="218.0" promptText="Prix" style="-fx-border-color: #542ae8;" />
+         </children>
+      </VBox>
+      <FontAwesomeIconView />
+      <Pane layoutY="125.0" prefHeight="377.0" prefWidth="256.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <Button fx:id="btnback" layoutX="59.0" layoutY="322.0" mnemonicParsing="false" onAction="#backmenu" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #542ae8#542ae8;" text="Retourner" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="#f5f2f2" glyphName="ARROW_CIRCLE_LEFT" size="30" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="256.0" layoutY="-4.0" prefHeight="129.0" prefWidth="931.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="897.0" layoutY="32.0" onMouseClicked="#close" size="30" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="264.0" layoutY="22.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="444.0" text="Ajouter Nouveau Abonnement" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="-4.0" prefHeight="129.0" prefWidth="256.0" style="-fx-background-color: fabe58;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-14.0" prefHeight="129.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/C:/Users/Firas/Desktop/Integration/src/images/Logo%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <TextField fx:id="tfdescr" alignment="CENTER" layoutX="764.0" layoutY="164.0" prefHeight="179.0" prefWidth="318.0" promptText="Description" style="-fx-border-color: #542ae8;" />
+      <Button fx:id="btnajou" alignment="CENTER" layoutX="645.0" layoutY="403.0" mnemonicParsing="false" onAction="#ajouterAB" prefHeight="30.0" prefWidth="153.0" style="-fx-background-color: #542ae8#542ae8 #542ae8#542ae8;" text="Ajouter " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#fff9f9" glyphName="PLUS_SQUARE" size="30" text="" textAlignment="RIGHT" />
+         </graphic>
+      </Button>
+      <FontAwesomeIconView fill="#542ae8" fontSmoothingType="LCD" glyphName="MONEY" layoutX="356.0" layoutY="337.0" size="30" />
+      <FontAwesomeIconView fill="#542ae8" fontSmoothingType="LCD" glyphName="ALIGN_LEFT" layoutX="357.0" layoutY="264.0" size="30" />
+      <FontAwesomeIconView fill="#542ae8" fontSmoothingType="LCD" glyphName="PENCIL_SQUARE_ALT" layoutX="357.0" layoutY="192.0" size="30" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.mohammed.MenuFrontController">
+   <children>
+      <AnchorPane prefHeight="91.0" prefWidth="802.0" style="-fx-background-color: fabe58;">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="114.0" layoutX="344.0" layoutY="6.0">
+               <image>
+                  <Image url="@../../images/Logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="bt_dec_menu_back" layoutX="666.0" layoutY="29.0" mnemonicParsing="false" onAction="#deco_menu_front" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #fde3a7 #fde3a7;" text="   Déconnexion" textAlignment="JUSTIFY" />
+            <FontAwesomeIconView glyphName="SIGN_OUT" layoutX="672.0" layoutY="49.0" />
+            <Label fx:id="label_nom" layoutX="23.0" layoutY="26.0" text="Welcome :" textFill="#2d3b78">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="90.0" prefHeight="513.0" prefWidth="802.0" style="-fx-background-color: #fde3a7 #fde3a7;">
+         <children>
+            <Button layoutX="370.0" layoutY="296.0" mnemonicParsing="false" onAction="#open_travail_hamza" text="hamza" />
+            <Button layoutX="648.0" layoutY="296.0" mnemonicParsing="false" onAction="#open_travail_firas" text="Firas" />
+            <Label layoutX="365.0" layoutY="7.0" prefHeight="39.0" prefWidth="75.0" text="MENU">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="#2d81ee" glyphName="USERS" layoutX="104.0" layoutY="126.0" onMouseClicked="#menu_utilisateur" size="50" text="" wrappingWidth="50.99998474121094" />
+            <FontAwesomeIconView fill="RED" glyphName="HEARTBEAT" layoutX="374.0" layoutY="126.0" onMouseClicked="#open_travail_hssan" size="50" />
+            <FontAwesomeIconView fill="#0d00ff" glyphName="HOME" layoutX="644.0" layoutY="125.0" onMouseClicked="#open_travail_cyrine" size="50" />
+            <Label layoutX="78.0" layoutY="154.0" text="Modifier Profile" />
+            <Label layoutX="325.0" layoutY="154.0" text="Nos Menus et Regimes" />
+            <Label layoutX="593.0" layoutY="154.0" text="Nos Centres et activité" />
+            <FontAwesomeIconView glyphName="CALENDAR" layoutX="106.0" layoutY="293.0" onMouseClicked="#open_travail_mahdi" size="50" />
+            <Label layoutX="59.0" layoutY="317.0" text="Evenements et Status" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

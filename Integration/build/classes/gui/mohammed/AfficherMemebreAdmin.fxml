@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.mohammed.AfficherMemebreAdminController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <AnchorPane id="AnchorPane" layoutY="5.0" prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <AnchorPane id="AnchorPane" layoutY="-5.0" prefHeight="400.0" prefWidth="600.0">
+                     <children>
+                        <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+                           <children>
+                              <AnchorPane fx:id="AP_ajouter_coach" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e0e2e4#e0e2e4;">
+                                 <children>
+                                    <AnchorPane prefHeight="603.0" prefWidth="198.0" style="-fx-background-color: fde3a7;">
+                                       <children>
+                                          <Line endX="137.0" endY="256.0" layoutX="28.0" layoutY="22.0" startX="-12.80899715423584" startY="256.0" stroke="#c8d3f4" strokeMiterLimit="5.0" strokeWidth="0.5" />
+                                          <Button fx:id="menu_bt_ajouter_coach" layoutX="17.0" layoutY="113.0" mnemonicParsing="false" onAction="#menu_ajouter_coach" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="  Ajouter un Coach" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="menu_bt_afficher_coach" layoutX="17.0" layoutY="157.0" mnemonicParsing="false" onAction="#menu_afficher_coach" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="   Afficher les Coach" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="menu_bt_afficher_membre" layoutX="12.0" layoutY="317.0" mnemonicParsing="false" onAction="#menu_afficher_membre" prefHeight="32.0" prefWidth="187.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="  Afficher les Membre" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="27.0" layoutY="134.0" size="12" text="" />
+                                          <FontAwesomeIconView fill="WHITE" glyphName="LIST" layoutX="25.0" layoutY="178.0" size="12" text="" />
+                                          <FontAwesomeIconView fill="WHITE" glyphName="LIST" layoutX="18.0" layoutY="338.0" size="12" text="" />
+                                          <Button fx:id="menu_bt_Stat_membre" layoutX="12.0" layoutY="362.0" mnemonicParsing="false" onAction="#menu_stat_membre" prefHeight="32.0" prefWidth="187.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="   Statistique Membre" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="AREA_CHART" layoutX="19.0" layoutY="383.0" size="12" text="" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="210.0" layoutY="104.0" prefHeight="486.0" prefWidth="580.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 20px; -fx-background-radius: 3px;">
+                                       <children>
+                                          <Label layoutX="12.0" prefHeight="29.0" prefWidth="297.0" text="Afficher tous les Membres" underline="true">
+                                             <font>
+                                                <Font name="Arial Black" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView fx:id="tv_afficher_memebre" layoutX="48.0" layoutY="79.0" prefHeight="200.0" prefWidth="484.0">
+                                             <columns>
+                                                <TableColumn fx:id="tc_cin_memebre" prefWidth="75.0" text="Cin" />
+                                                <TableColumn fx:id="tc_nom_memebre" prefWidth="75.0" text="Nom" />
+                                                <TableColumn fx:id="tc_prenom_memebre" prefWidth="75.0" text="Prenom" />
+                                                <TableColumn fx:id="tc_date_memebre" prefWidth="75.0" text="Date_N" />
+                                                <TableColumn fx:id="tc_email_memebre" prefWidth="75.0" text="Email" />
+                                                <TableColumn fx:id="tc_telephone_memebre" prefWidth="108.0" text="Telephone" />
+                                             </columns>
+                                          </TableView>
+                                          <ComboBox fx:id="cb_cin_membre" layoutX="44.0" layoutY="293.0" onAction="#cb_cin_membre" prefWidth="150.0" />
+                                          <TextField fx:id="tf_nom_membre" layoutX="44.0" layoutY="330.0" prefHeight="31.0" prefWidth="150.0" promptText="Modifier Nom" />
+                                          <TextField fx:id="tf_prenom_membre" layoutX="44.0" layoutY="370.0" prefHeight="31.0" prefWidth="150.0" promptText="Modifier Prenom" />
+                                          <TextField fx:id="tf_email_membre" layoutX="44.0" layoutY="409.0" prefHeight="31.0" prefWidth="151.0" promptText="Modifier Email" />
+                                          <Button fx:id="bt_modifier_membre" layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#bt_modifier_membre" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: fabe58;" text="Modifier" />
+                                          <ComboBox fx:id="cb_cin_membre_supp" layoutX="412.0" layoutY="293.0" prefHeight="31.0" prefWidth="119.0" />
+                                          <Button fx:id="bt_supp_membre" layoutX="426.0" layoutY="330.0" mnemonicParsing="false" onAction="#bt_supp_membre" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: fabe58;" text="Supprimer" />
+                                          <TextField fx:id="tf_telephone_membre" layoutX="210.0" layoutY="330.0" promptText="Modifier Telephone" />
+                                          <TextField fx:id="tf_taille_membre" layoutX="210.0" layoutY="370.0" promptText="Modifier taille" />
+                                          <TextField fx:id="tf_poids_membre" layoutX="210.0" layoutY="408.0" promptText="Modifier Poids" />
+                                          <Button fx:id="bt_trie_Membre" layoutX="476.0" layoutY="40.0" mnemonicParsing="false" onAction="#bt_trie_Membre" style="-fx-background-color: fabe58;" text="Trie" />
+                                          <Button layoutX="368.0" layoutY="40.0" mnemonicParsing="false" onAction="#pdf_membre" prefHeight="31.0" prefWidth="68.0" style="-fx-background-color: fabe58;" text="     PDF" />
+                                          <TextField fx:id="tf_rech_membre" layoutX="48.0" layoutY="40.0" onAction="#rech_membre" prefHeight="31.0" prefWidth="250.0" promptText="Rechercher:" />
+                                          <FontAwesomeIconView glyphName="FILE_PDF_ALT" layoutX="377.0" layoutY="61.0" size="15" />
+                                          <PasswordField fx:id="tf_password_membre" layoutX="210.0" layoutY="293.0" promptText="Modifier Password" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="91.0" prefWidth="802.0" style="-fx-background-color: fde3a7;">
+                                       <children>
+                                          <AnchorPane layoutX="-1.0" prefHeight="91.0" prefWidth="198.0" style="-fx-background-color: fabe58;">
+                                             <children>
+                                                <Label layoutX="80.0" layoutY="29.0" prefHeight="38.0" prefWidth="78.0" text="Admin" textFill="#2d3b78">
+                                                   <font>
+                                                      <Font name="Arial Black" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <Label layoutX="355.0" layoutY="26.0" text="Gestion des Utilisateur" textFill="#2d3b78">
+                                             <font>
+                                                <Font name="Arial Black" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="757.0" layoutY="52.0" onMouseClicked="#back" size="25" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="1195.0" style="-fx-background-color: FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.firas.MenuAbonnementAdminController">
+   <children>
+      <Button fx:id="btnplus" alignment="CENTER" layoutX="573.0" layoutY="211.0" mnemonicParsing="false" onAction="#goajouter" prefHeight="86.0" prefWidth="290.0" style="-fx-background-color: #542ae8#542ae8;" text="Ajouter Abonnement" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="PLUS_CIRCLE" size="40" />
+         </graphic>
+      </Button>
+      <Button fx:id="btnliste" layoutX="573.0" layoutY="342.0" mnemonicParsing="false" onAction="#golist" prefHeight="86.0" prefWidth="290.0" style="-fx-background-color: #542ae8#542ae8;" text="Liste Abonnement" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="#fcf5f5" glyphName="LIST" size="30" text="" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Pane layoutX="254.0" prefHeight="129.0" prefWidth="941.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="897.0" layoutY="32.0" onMouseClicked="#close" size="30" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="275.0" layoutY="22.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="392.0" text="Gestion Des Abonnements" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="129.0" prefWidth="256.0" style="-fx-background-color: fabe58;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-14.0" prefHeight="129.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/C:/Users/Firas/Desktop/Integration/src/images/Logo%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutY="129.0" prefHeight="377.0" prefWidth="256.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;" />
+   </children>
+</AnchorPane>

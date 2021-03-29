@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="1195.0" style="-fx-background-color: FFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.firas.ReclamationAdminController">
+   <children>
+      <TableView fx:id="recTable" layoutX="259.0" layoutY="164.0" prefHeight="398.0" prefWidth="944.0" style="-fx-border-color: #542ae8; -fx-border-width: 3;">
+        <columns>
+          <TableColumn fx:id="colnom" prefWidth="120.0" text="Nom" />
+          <TableColumn fx:id="colprenom" prefWidth="120.0" text="Prénom" />
+            <TableColumn fx:id="colmail" prefWidth="150.0" text="Email" />
+            <TableColumn fx:id="coldate" prefWidth="120.0" text="Date" />
+            <TableColumn fx:id="coldesc" prefWidth="169.0" text="Description" />
+            <TableColumn fx:id="coltype" prefWidth="151.0" text="Type" />
+            <TableColumn fx:id="coletat" prefWidth="118.0" text="Etat" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnactualiser" layoutX="349.0" layoutY="131.0" mnemonicParsing="false" onAction="#loadDate" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #542ae8;">
+         <graphic>
+            <FontAwesomeIconView fill="#fcf6f6" glyphName="REFRESH" size="20" />
+         </graphic>
+      </Button>
+      <Button fx:id="btnimprimer" layoutX="303.0" layoutY="131.0" mnemonicParsing="false" onAction="#printRec" prefHeight="31.0" prefWidth="38.0" style="-fx-background-color: #542ae8#542ae8;">
+         <graphic>
+            <FontAwesomeIconView fill="#f8f5f5" glyphName="PRINT" size="20" />
+         </graphic>
+      </Button>
+      <Button fx:id="btnetat" layoutX="970.0" layoutY="564.0" mnemonicParsing="false" onAction="#channgeEtat" prefHeight="61.0" prefWidth="232.0" style="-fx-background-color: #542ae8;" text="Marquer Comme Traiter" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="#f5f3f3" glyphName="CHECK_SQUARE" size="20" text="" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="259.0" layoutY="564.0" mnemonicParsing="false" onAction="#dateXY" prefHeight="61.0" prefWidth="238.0" style="-fx-background-color: #542ae8;" text="Chercher Dans une Période" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fx:id="btnrech" fill="#fcf8f8" glyphName="SEARCH" size="20" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="typeRecherche" layoutX="822.0" layoutY="130.0" onAction="#list" prefHeight="33.0" prefWidth="189.0" style="-fx-border-color: #542ae8;" />
+      <TextField fx:id="RechercheTextField" layoutX="1012.0" layoutY="130.0" onKeyReleased="#list" style="-fx-border-color: #542ae8;" />
+      <Pane layoutX="253.0" prefHeight="129.0" prefWidth="950.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="897.0" layoutY="32.0" onMouseClicked="#close" size="30" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="289.0" layoutY="22.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="345.0" text="Listes Des Réclamations" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="129.0" prefWidth="256.0" style="-fx-background-color: fabe58;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-14.0" prefHeight="129.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/C:/Users/Firas/Desktop/Integration/src/images/Logo%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutY="129.0" prefHeight="498.0" prefWidth="256.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <Button fx:id="btnback" layoutX="59.0" layoutY="443.0" mnemonicParsing="false" onAction="#gomenu" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #542ae8#542ae8;" text="Retourner" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="#f5f2f2" glyphName="ARROW_CIRCLE_LEFT" size="30" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Label layoutX="701.0" layoutY="129.0" prefHeight="31.0" prefWidth="119.0" text="Rechercher Par" textFill="#542ae8" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="259.0" layoutY="131.0" mnemonicParsing="false" style="-fx-background-color: #542ae8;" textFill="#0a0a0a">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="FILE_PDF_ALT" size="20" />
+         </graphic>
+      </Button>
+      <Label layoutX="436.0" layoutY="133.0" prefHeight="31.0" prefWidth="67.0" text="Trier Par" textFill="#542ae8" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="combotrie" layoutX="503.0" layoutY="132.0" onAction="#trierall" prefHeight="30.0" prefWidth="187.0" style="-fx-border-color: #542ae8#542ae8;" />
+      <JFXDatePicker fx:id="tffin" defaultColor="#542ae8" layoutX="508.0" layoutY="593.0" prefHeight="31.0" prefWidth="220.0" promptText="A" />
+      <JFXDatePicker fx:id="tfdeb" defaultColor="#542ae8" layoutX="508.0" layoutY="567.0" prefHeight="31.0" prefWidth="220.0" promptText="De" />
+   </children>
+</AnchorPane>

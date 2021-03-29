@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Mahdi.ModifierStatusAdmiinController">
+    <children>
+        <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+                    <children>
+                        <DatePicker fx:id="tfDate_Pub" layoutX="127.0" layoutY="100.0" promptText="date_pub" />
+                        <Button fx:id="btnmodif" layoutX="480.0" layoutY="339.0" mnemonicParsing="false" onAction="#btnModifierEvenement" text="Modifier" />
+                        <Label fx:id="date_pub" layoutX="42.0" layoutY="105.0" text="date_pub" />
+                        <Label fx:id="date_even" layoutX="42.0" layoutY="173.0" text="text" />
+                        <TextField fx:id="tftext" layoutX="127.0" layoutY="168.0" prefHeight="124.0" prefWidth="218.0" promptText="text" />
+                    </children>
+                </AnchorPane>
+                <DatePicker fx:id="tfDate_Pub" layoutX="137.0" layoutY="110.0" promptText="date_pub" />
+                <Button fx:id="btnmodif" layoutX="490.0" layoutY="349.0" mnemonicParsing="false" onAction="#btnModifierStatus" text="Modifier" />
+                <Label fx:id="date_pub" layoutX="52.0" layoutY="115.0" text="date_pub" />
+                <Label fx:id="date_even" layoutX="52.0" layoutY="183.0" text="text" />
+            </children>
+        </AnchorPane>
+        <AnchorPane id="AnchorPane" layoutX="20.0" layoutY="20.0" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <DatePicker fx:id="tfDate_Pub" layoutX="127.0" layoutY="100.0" promptText="date_pub" />
+                <Button fx:id="btnmodif" layoutX="480.0" layoutY="339.0" mnemonicParsing="false" onAction="#btnModifierEvenement" text="Modifier" />
+                <Label fx:id="date_pub" layoutX="42.0" layoutY="105.0" text="date_pub" />
+                <Label fx:id="date_even" layoutX="42.0" layoutY="173.0" text="text" />
+                <TextField fx:id="tftext" layoutX="127.0" layoutY="168.0" prefHeight="124.0" prefWidth="218.0" promptText="text" />
+            </children>
+        </AnchorPane>
+        <DatePicker fx:id="tfDate_Pub" layoutX="147.0" layoutY="120.0" promptText="date_pub" />
+        <Button fx:id="btnmodif" layoutX="500.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnModifierStatus" text="Modifier" />
+        <Label fx:id="date_pub" layoutX="62.0" layoutY="125.0" text="date_pub" />
+        <Label fx:id="text" layoutX="62.0" layoutY="193.0" text="text" />
+    </children>
+</AnchorPane>
