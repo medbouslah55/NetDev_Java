@@ -7,11 +7,15 @@ package gui.hamza;
 
 import com.jfoenix.controls.JFXDatePicker;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
+import static gui.hamza.PaiementController.showAlert;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.time.Duration;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +26,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.mail.MessagingException;
@@ -31,11 +37,13 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
 import models.Reservation;
-import static gui.hamza.PaiementController.showAlert;
+import models.User;
 import services.ReservationCRUD;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+import utils.UserSession;
 
 /**
  * FXML Controller class
@@ -44,8 +52,7 @@ import tray.notification.TrayNotification;
  */
 public class AjouterreservationController implements Initializable {
 
-    @FXML
-    private TextField tfcin;
+   // private TextField tfcin;
     @FXML
     private JFXDatePicker tfdate;
     @FXML
@@ -59,13 +66,14 @@ public class AjouterreservationController implements Initializable {
     private TextField tfnom;
     @FXML
     private TextField tfprenom;
-
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       
     }    
     @FXML
     private void back(ActionEvent event) throws IOException {
@@ -85,14 +93,14 @@ public class AjouterreservationController implements Initializable {
                 case 0 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Remplir les champs vides! ");break;
                 case 1 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Verifiez le nom  !");break;
                 case 2 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le prenom! ");break;
-                case 3 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le cin! ");break;
+                //case 3 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le cin! ");break;
                 case 4 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le nombre de place! ");break;
                 default : 
-                ReservationCRUD r = new ReservationCRUD();
-        int j=Integer.parseInt(tfcin.getText());
+                    ReservationCRUD r = new ReservationCRUD();
+        //int j=Integer.parseInt(tfcin.getText());
         int k=Integer.parseInt(tfnbrplace.getText());
         
-        r.addreservation(new Reservation(tfnom.getText(), tfprenom.getText(),j,Date.valueOf(tfdate.getValue()),k));
+        r.addreservationn(new Reservation(tfnom.getText(), tfprenom.getText(),Date.valueOf(tfdate.getValue()),k));
         notifsuccess("Reservation ajouter avec succes");
         //JOptionPane.showMessageDialog(null,"Reservation ajoute");
         //Stage window = primarystage;
@@ -101,7 +109,7 @@ public class AjouterreservationController implements Initializable {
         Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app.setScene(rec2);
         app.show();
-        sendMail();
+       sendMail();
           }  
         } catch (Exception e) {
             notiferror("Veuiller verifier les champs");
@@ -141,13 +149,13 @@ public class AjouterreservationController implements Initializable {
             m.setSubject("Reservation Ajouter");
             String nom = tfnom.getText();
             String prenom = tfprenom.getText();
-            String cin = tfcin.getText();
+            //String cin = tfcin.getText();
             Date d=Date.valueOf(tfdate.getValue());
-            int nbrplaces=Integer.parseInt(tfcin.getText());
+            int nbrplaces=Integer.parseInt(tfnbrplace.getText());
             m.setText("Votre Reservation est ajoutee avec succes "
                     + "\n Nom = "+nom
                     + "\n Prenom = "+prenom
-                    + "\n Cin = "+cin
+                    //+ "\n Cin = "+cin
                     + "\n Date = "+d
                     + "\n Nombre Places = "+nbrplaces
             );
@@ -189,7 +197,7 @@ public class AjouterreservationController implements Initializable {
 //    }
              private int controleDeSaisi() {  
                  
-        if (tfnom.getText().isEmpty() || tfprenom.getText().isEmpty() || tfcin.getText().isEmpty()
+        if (tfnom.getText().isEmpty() || tfprenom.getText().isEmpty() 
                 || tfnbrplace.getText().isEmpty()) {
             
             return 0;
@@ -207,11 +215,11 @@ public class AjouterreservationController implements Initializable {
                 tfprenom.requestFocus();
                 tfprenom.selectEnd();
                 return 2;
-            } else if (!Pattern.matches("[0-9]*", tfcin.getText())) {
-                showAlert(Alert.AlertType.ERROR, "Données ", "Verifier les données", "Vérifiez la cin! ");
-                tfcin.requestFocus();
-                tfcin.selectEnd();
-                return 3;
+//            } else if (!Pattern.matches("[0-9]*", tfcin.getText())) {
+//                showAlert(Alert.AlertType.ERROR, "Données ", "Verifier les données", "Vérifiez la cin! ");
+//                tfcin.requestFocus();
+//                tfcin.selectEnd();
+//                return 3;
             } else if (!Pattern.matches("[0-9]*", tfnbrplace.getText())) {
                 showAlert(Alert.AlertType.ERROR, "Données ", "Verifier les données", "Vérifiez le nombre de places ! ");
                 tfnbrplace.requestFocus();
@@ -227,6 +235,8 @@ public class AjouterreservationController implements Initializable {
     @FXML
     private void ajouterreservation(MouseEvent event) {
     }
+
+
     }
 
 

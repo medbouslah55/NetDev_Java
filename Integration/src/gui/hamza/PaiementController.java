@@ -188,7 +188,7 @@ public class PaiementController implements Initializable {
     @FXML
     private void back(ActionEvent event) throws IOException {
         Stage window = primarystage;
-        Parent rootRec2 = FXMLLoader.load(getClass().getResource("interfacereservation.fxml"));
+        Parent rootRec2 = FXMLLoader.load(getClass().getResource("interfacepanier.fxml"));
         Scene rec2 = new Scene(rootRec2);
         Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app.setScene(rec2);

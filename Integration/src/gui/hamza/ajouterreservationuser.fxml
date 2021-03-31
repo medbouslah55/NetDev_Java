@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.hamza.AjouterreservationuserController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fde3a7;" styleClass="mainFxmlClass">
+         <children>
+            <VBox layoutX="174.0" layoutY="85.0" prefHeight="206.0" prefWidth="236.0" spacing="20.0">
+               <children>
+                  <TextField fx:id="tfnom" promptText="Nom" style="-fx-background-radius: 1em;" />
+                  <TextField fx:id="tfprenom" promptText="Prenom" style="-fx-background-radius: 1em;" />
+                  <JFXDatePicker fx:id="tfdate" defaultColor="#58008f" prefHeight="25.0" prefWidth="233.0" />
+                  <TextField fx:id="tfnbrplace" promptText="Nombre de place" style="-fx-background-radius: 1em;" />
+               </children>
+            </VBox>
+            <Button fx:id="btnajout" alignment="CENTER" layoutX="189.0" layoutY="305.0" mnemonicParsing="false" onAction="#ajouterreservation" prefHeight="61.0" prefWidth="202.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Ajouter Reservation" textFill="#fffefe">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="184.0" layoutY="33.0" text="Ajouter une reservation">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="30.0" layoutY="25.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;">
+               <graphic>
+                  <MaterialDesignIconView fx:id="btnback" fill="#f2f2f2" glyphName="KEYBOARD_BACKSPACE" size="30" />
+               </graphic>
+            </Button>
+            <OctIconView fill="#f8f3f3" glyphName="CHECK" layoutX="362.0" layoutY="344.0" onDragDetected="#ajouterreservation" size="25" wrappingWidth="14.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

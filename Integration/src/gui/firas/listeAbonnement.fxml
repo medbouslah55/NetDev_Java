@@ -17,22 +17,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="1195.0" style="-fx-background-color: FFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.firas.ListeAbonnementController">
     <children>
-      <Button layoutX="660.0" layoutY="577.0" mnemonicParsing="false" onAction="#SupprimerAB" prefHeight="41.0" prefWidth="129.0" style="-fx-background-color: #542ae8#542ae8 #542ae8#542ae8;" text="Supprimer" textFill="WHITE">
-         <graphic>
-            <MaterialDesignIconView fx:id="btnsupprimer" fill="#f8f7f7" glyphName="DELETE_VARIANT" size="30" text="" />
-         </graphic>
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" layoutX="457.0" layoutY="577.0" mnemonicParsing="false" onAction="#ModifierAB" prefHeight="30.0" prefWidth="189.0" style="-fx-background-color: #542ae8#542ae8;" text="Modifier " textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-         <graphic>
-            <FontAwesomeIconView fx:id="btnmodifier" fill="#f8f7f7" glyphName="EDIT" size="30" text="" textAlignment="RIGHT" />
-         </graphic>
-      </Button>
       <Button layoutX="1098.0" layoutY="138.0" mnemonicParsing="false" onAction="#loadDate" style="-fx-background-color: #542ae8 #542ae8;">
          <graphic>
             <FontAwesomeIconView fx:id="btnactualiser" fill="#f8f7f7" glyphName="REFRESH" size="20" text="" />
@@ -93,7 +77,7 @@
       <TextField fx:id="tftitre" alignment="CENTER" layoutX="258.0" layoutY="502.0" promptText="Titre" style="-fx-border-color: #542ae8#542ae8;" />
       <TextField fx:id="tftype" alignment="CENTER" layoutX="258.0" layoutY="544.0" promptText="Type" style="-fx-border-color: #542ae8#542ae8;" />
       <TextField fx:id="tfprix" alignment="CENTER" layoutX="258.0" layoutY="581.0" promptText="Prix" style="-fx-border-color: #542ae8#542ae8;" />
-      <TextField fx:id="tfdescription" alignment="CENTER" layoutX="457.0" layoutY="501.0" prefHeight="73.0" prefWidth="189.0" promptText="Description" style="-fx-border-color: #542ae8#542ae8;" />
+      <TextField fx:id="tfdescription" alignment="CENTER" layoutX="457.0" layoutY="501.0" prefHeight="113.0" prefWidth="189.0" promptText="Description" style="-fx-border-color: #542ae8#542ae8;" />
       <Button fx:id="btnimprimer" layoutX="1142.0" layoutY="138.0" mnemonicParsing="false" onAction="#printRec" prefHeight="31.0" prefWidth="38.0" style="-fx-background-color: #542ae8#542ae8;">
          <graphic>
             <FontAwesomeIconView fill="#f8f5f5" glyphName="PRINT" size="20" />

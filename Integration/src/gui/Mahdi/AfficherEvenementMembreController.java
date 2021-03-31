@@ -5,15 +5,22 @@
  */
 package gui.Mahdi;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import models.Evenement;
 import services.ServicePublication;
 
@@ -60,6 +67,16 @@ public class AfficherEvenementMembreController implements Initializable {
 
         tvevenement.setItems(list);
 
+    }
+
+    @FXML
+    private void back(MouseEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/mohammed/MenuFront.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
 }

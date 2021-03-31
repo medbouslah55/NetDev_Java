@@ -38,6 +38,8 @@ public class MenuFrontController implements Initializable {
     private Label label_nom;
 
     User member = UserSession.getInstance().getLoggedUser();
+    @FXML
+    private Button panier;
     /**
      * Initializes the controller class.
      */
@@ -49,23 +51,15 @@ public class MenuFrontController implements Initializable {
     public void setlabel(){
         label_nom.setText("Bienvenue " + UserSession.getInstance().getLoggedUser().getNom() + ":");
     }
-
+    
     @FXML
-    private void open_travail_hamza(ActionEvent event) {
-    }
-
-    @FXML
-    private void open_travail_firas(ActionEvent event) throws IOException {
+    private void menu_utilisateur(MouseEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/firas/Consulter-Mes-Réclamations.fxml"));/* Exception */
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/mohammed/EditeProfile.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    private void menu_utilisateur(MouseEvent event) {
     }
 
     @FXML
@@ -79,7 +73,13 @@ public class MenuFrontController implements Initializable {
     }
 
     @FXML
-    private void open_travail_cyrine(MouseEvent event) {
+    private void open_travail_cyrine(MouseEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/cyrine/CentresMembre.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -102,6 +102,46 @@ public class MenuFrontController implements Initializable {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/Mahdi/AfficherEvenementMembre.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void open_travail_firas(MouseEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/firas/MenuReclamationUser.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void acheterabonnement(MouseEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/firas/AcheterAbonnement.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void openPanier(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/hamza/interfacepanier.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void open_travail_hamza(MouseEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/hamza/interfacereservationuser.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

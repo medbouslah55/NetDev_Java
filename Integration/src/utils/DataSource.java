@@ -18,7 +18,7 @@ public class DataSource {
     private static DataSource instance;
     private Connection cnx;
     
-    private final String URL = "jdbc:mysql://127.0.0.1:3306/bdpidev3";
+    private final String URL = "jdbc:mysql://127.0.0.1:3306/bdpidev4";
     private final String LOGIN = "root";
     private final String PASSWORD = "";
     

@@ -1,24 +1,22 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package gui.hamza;
 
 import com.jfoenix.controls.JFXDatePicker;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
-import static gui.hamza.PaiementController.showAlert;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Properties;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,31 +33,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.swing.JOptionPane;
-import models.Reservation;
 import static gui.hamza.PaiementController.showAlert;
+import models.Reservation;
+import models.User;
 import services.ReservationCRUD;
-import utils.DataSource;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
-
+import utils.DataSource;
+import utils.UserSession;
 
 /**
  * FXML Controller class
@@ -68,9 +57,7 @@ import tray.notification.TrayNotification;
  */
 public class InterfacereservationuserController implements Initializable {
 
-   
-    @FXML
-    private TextField tfcin;
+    //private TextField tfcin;
     @FXML
     private JFXDatePicker tfdate;
     @FXML
@@ -115,7 +102,7 @@ public class InterfacereservationuserController implements Initializable {
     private MaterialDesignIconView closeButton;
     @FXML
     private ComboBox<String> typeRecherche;
-    ObservableList<String> listeTypeRecherche = FXCollections.observableArrayList("Tout", "Nom", "Prenom", "Cin");
+    ObservableList<String> listeTypeRecherche = FXCollections.observableArrayList("Tout", "Nom", "Prenom");
     @FXML
     private ComboBox<String> typetri;
     ObservableList<String> listeTypetri = FXCollections.observableArrayList(" Tout", "Trie Date", "Trie Nom","Trie Prenom", "Trie Nombre places");
@@ -125,6 +112,9 @@ public class InterfacereservationuserController implements Initializable {
     private JFXDatePicker tffin;
     @FXML
     private Button btnrecherchedate;
+    @FXML
+    private Button back;
+     User member = UserSession.getInstance().getLoggedUser();
     /**
      * Initializes the controller class.
      */
@@ -200,18 +190,18 @@ public class InterfacereservationuserController implements Initializable {
                 case 0 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Remplir les champs vides! ");break;
                 case 1 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Verifiez le nom  !");break;
                 case 2 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le prenom! ");break;
-                case 3 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le cin! ");break;
+                //case 3 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le cin! ");break;
                 case 4 : showAlert(Alert.AlertType.ERROR, "Données erronés", "Verifier les données", "Vérifiez le nombre de place! ");break;
                 default : 
         Reservation test = (Reservation) tvreservations.getSelectionModel().getSelectedItem();
         ReservationCRUD r = new ReservationCRUD();
-        int j=Integer.parseInt(tfcin.getText());
+        //int j=Integer.parseInt(tfcin.getText());
         int k=Integer.parseInt(tfnbrplace.getText());
-        r.modifierreservation(new Reservation(test.getId_reservation(),tfnom.getText(), tfprenom.getText(),j,Date.valueOf(tfdate.getValue()),k));
+        r.modifierreservation(new Reservation(test.getId_reservation(),tfnom.getText(), tfprenom.getText(),Date.valueOf(tfdate.getValue()),k));
         //JOptionPane.showMessageDialog(null,"Reservation modifieé");
         tfnom.clear();
         tfprenom.clear();
-        tfcin.clear();
+        //tfcin.clear();
         tfdate.getEditor().clear();
         tfnbrplace.clear();
         afficherreservations();
@@ -223,7 +213,6 @@ public class InterfacereservationuserController implements Initializable {
         ReservationCRUD res = new ReservationCRUD();
         res.delete(test.getId_reservation());
         //JOptionPane.showMessageDialog(null,"Reservation supprimeé");
-        afficherreservations();
         tvreservations.refresh();
         afficherreservations();
         notifsuccess("Reservation supprimer avec succes");
@@ -236,7 +225,7 @@ public class InterfacereservationuserController implements Initializable {
     Reservation test = (Reservation) tvreservations.getSelectionModel().getSelectedItem();
     tfnom.setText(test.getNom());
     tfprenom.setText(test.getPrenom());
-    tfcin.setText(Integer.toString(test.getCin_membre()));
+   // tfcin.setText(Integer.toString(test.getCin_membre()));
     //tfdate.getValue(test.getDate_act());
     String d1= test.getDate_act().toString();
     LocalDate ss = LocalDate.parse(d1);
@@ -249,6 +238,7 @@ public class InterfacereservationuserController implements Initializable {
         private void ButtonAction(ActionEvent event) throws SQLException, IOException {
         if(event.getSource() == btnajouter){
         Stage window = primarystage;
+        //Parent rootRec2 = FXMLLoader.load(getClass().getResource("ajouterreservationuser.fxml"));
         Parent rootRec2 = FXMLLoader.load(getClass().getResource("ajouterreservation.fxml"));
         Scene rec2 = new Scene(rootRec2);
         Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -309,7 +299,6 @@ public class InterfacereservationuserController implements Initializable {
 //        }   
 //    }
          private void recherche() throws SQLException {
-         
             String value9 = tfrecherche.getText();
             PreparedStatement ps = DataSource.getInstance().getCnx().prepareStatement("select * from Reservation where cin_membre Like'"+value9+"'");
             ResultSet rs5 = ps.executeQuery();  
@@ -468,7 +457,7 @@ public class InterfacereservationuserController implements Initializable {
         }
                     private int controleDeSaisi() {  
                  
-        if (tfnom.getText().isEmpty() || tfprenom.getText().isEmpty() || tfcin.getText().isEmpty()
+        if (tfnom.getText().isEmpty() || tfprenom.getText().isEmpty() 
                 || tfnbrplace.getText().isEmpty()) {
             
             return 0;
@@ -486,11 +475,11 @@ public class InterfacereservationuserController implements Initializable {
                 tfprenom.requestFocus();
                 tfprenom.selectEnd();
                 return 2;
-            } else if (!Pattern.matches("[0-9]*", tfcin.getText())) {
-                showAlert(Alert.AlertType.ERROR, "Données ", "Verifier les données", "Vérifiez la cin! ");
-                tfcin.requestFocus();
-                tfcin.selectEnd();
-                return 3;
+//            } else if (!Pattern.matches("[0-9]*", tfcin.getText())) {
+//                showAlert(Alert.AlertType.ERROR, "Données ", "Verifier les données", "Vérifiez la cin! ");
+//                tfcin.requestFocus();
+//                tfcin.selectEnd();
+//                return 3;
             } else if (!Pattern.matches("[0-9]*", tfnbrplace.getText())) {
                 showAlert(Alert.AlertType.ERROR, "Données ", "Verifier les données", "Vérifiez le nombre de places ! ");
                 tfnbrplace.requestFocus();
@@ -502,10 +491,19 @@ public class InterfacereservationuserController implements Initializable {
         
         
     }
+
+    @FXML
+    private void back(ActionEvent event) throws IOException {
+        Stage window = primarystage;
+        Parent rootRec2 = FXMLLoader.load(getClass().getResource("/gui/mohammed/MenuFront.fxml"));;
+        Scene rec2 = new Scene(rootRec2);
+        Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app.setScene(rec2);
+        app.show();
+    }
 }
 
     
 
     
-
 

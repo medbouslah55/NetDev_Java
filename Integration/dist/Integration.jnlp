@@ -8,9 +8,10 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Integration.jar" size="21270126" download="eager" />
+    <jar href="Integration.jar" size="48662474" download="eager" />
     <jar href="lib\Bulk_SMS_Library.jar" size="3292" download="eager" />
     <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
+    <jar href="lib\activation-1.1.1.jar" size="69409" download="eager" />
     <jar href="lib\commons-codec-1.4.jar" size="58160" download="eager" />
     <jar href="lib\commons-lang3-3.7.jar" size="499634" download="eager" />
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
@@ -18,6 +19,7 @@
     <jar href="lib\fontbox-2.0.23.jar" size="1563961" download="eager" />
     <jar href="lib\html2pdf-3.0.0.jar" size="3112892" download="eager" />
     <jar href="lib\itextpdf-5.1.0.jar" size="1614453" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\jfoenix-1.0.0.jar" size="2186636" download="eager" />
     <jar href="lib\kernel-7.1.11.jar" size="1185161" download="eager" />
     <jar href="lib\mail.jar" size="507849" download="eager" />

@@ -24,7 +24,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import models.Activite;
 import models.ControleSaisie;
+import models.Panier;
 import services.ActiviteService;
+import services.PanierCRUD;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
@@ -62,6 +64,8 @@ public class ActMembreController implements Initializable {
      * Initializes the controller class.
      */
     public List<Activite> deb;
+    @FXML
+    private Button ajouterpanier;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -145,6 +149,18 @@ public class ActMembreController implements Initializable {
 
     public List<Activite> getDeb() {
         return deb;
+    }
+
+    @FXML
+    private void ajouterpanier(ActionEvent event) {
+        Activite a = liste.getSelectionModel().getSelectedItem();
+        PanierCRUD p= new PanierCRUD();
+        Panier b = new Panier();
+        b.setNom_act(a.getNom_act());
+        b.setPrix((float) a.getPrix_reservation());
+        b.setCapacite(a.getCapacite());
+        p.ajouterpanier(b);
+        System.out.println("Panier ajoutee");
     }
 
 }

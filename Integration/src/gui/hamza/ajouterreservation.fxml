@@ -12,15 +12,11 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #fde3a7;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.hamza.AjouterreservationController">
-    <stylesheets>
-        <URL value="@ajouterreservation.css" />
-    </stylesheets>
    <children>
       <VBox layoutX="83.0" layoutY="85.0" prefHeight="206.0" prefWidth="236.0" spacing="20.0">
          <children>
             <TextField fx:id="tfnom" promptText="Nom" style="-fx-background-radius: 1em;" />
             <TextField fx:id="tfprenom" promptText="Prenom" style="-fx-background-radius: 1em;" />
-            <TextField fx:id="tfcin" promptText="Cin" style="-fx-background-radius: 1em;" />
             <JFXDatePicker fx:id="tfdate" defaultColor="#58008f" prefHeight="25.0" prefWidth="233.0" />
             <TextField fx:id="tfnbrplace" promptText="Nombre de place" style="-fx-background-radius: 1em;" />
          </children>

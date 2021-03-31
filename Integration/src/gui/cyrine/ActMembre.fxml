@@ -33,5 +33,10 @@
             <Font name="Arial Black" size="9.0" />
          </font>
       </Button>
+      <Button fx:id="ajouterpanier" layoutX="740.0" layoutY="466.0" mnemonicParsing="false" onAction="#ajouterpanier" prefHeight="40.0" prefWidth="144.0" style="-fx-background-color: green; -fx-background-radius: 30px;" text="Ajouter au panier" textFill="#f8f5f5">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

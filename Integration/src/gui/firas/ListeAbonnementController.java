@@ -85,10 +85,6 @@ public class ListeAbonnementController implements Initializable {
     @FXML
     private TextField tfdescription;
     @FXML
-    private MaterialDesignIconView btnsupprimer;
-    @FXML
-    private FontAwesomeIconView btnmodifier;
-    @FXML
     private FontAwesomeIconView btnactualiser;
     @FXML
     private Button btnback;
@@ -158,7 +154,6 @@ public class ListeAbonnementController implements Initializable {
 
     }
 
-    @FXML
     private void ModifierAB(ActionEvent event) throws IOException {
         try {
             //selection(event);
@@ -177,7 +172,6 @@ public class ListeAbonnementController implements Initializable {
 
     }
 
-    @FXML
     private void SupprimerAB(ActionEvent event) throws SQLException {
         Abonnement test = (Abonnement) coltabab.getSelectionModel().getSelectedItem();
         AbonnementCRUD rt = new AbonnementCRUD();
@@ -245,7 +239,7 @@ public class ListeAbonnementController implements Initializable {
     private void CreatePDF() throws SQLException, DocumentException {
         try {
             Document doc = new Document();
-            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Firas\\Desktop\\ListeTypeAbonnement.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\trabe\\Desktop\\Integration\\ListeTypeAbonnement.pdf"));
 
             doc.open();
             doc.add(new Paragraph(" "));
@@ -308,7 +302,7 @@ public class ListeAbonnementController implements Initializable {
             doc.add(tabpdf);
             notifSUCCESS("Donneés Extraire Sous Format PDF");
             doc.close();
-            Desktop.getDesktop().open(new File("C:\\Users\\Firas\\Desktop\\ListeTypeAbonnement.pdf"));
+            Desktop.getDesktop().open(new File("C:\\Users\\trabe\\Desktop\\Integration\\ListeTypeAbonnement.pdf"));
 
         } catch (DocumentException | HeadlessException | IOException e) {
             System.out.println("ERROR PDF");

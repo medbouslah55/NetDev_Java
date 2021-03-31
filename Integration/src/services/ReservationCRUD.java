@@ -26,23 +26,21 @@ import utils.DataSource;
  * @author HAMZA
  */
 public class ReservationCRUD implements Reservationinterface{
-    Connection cn = DataSource.getInstance().getCnx();
-    @Override
-    public void addreservation (Reservation r){
-    String requete = "INSERT INTO Reservation (nom,prenom,cin_membre,date_act,nb_place)" + "VALUES(?,?,?,?,?)";
-        try {
-            PreparedStatement pst = DataSource.getInstance().getCnx().prepareStatement(requete);          
-            pst.setString(1, r.getNom());
-            pst.setString(2, r.getPrenom());
-            pst.setInt(3, r.getCin_membre());
-            pst.setDate(4,r.getDate_act());
-            pst.setInt(5, r.getNb_place());
-            pst.executeUpdate();
-            System.out.println("Reservation ajoutee");
-        } catch (SQLException ex) {
-            Logger.getLogger(ReservationCRUD.class.getName()).log(Level.SEVERE, null, ex);
-        }   
-}
+//    public void addreservation (Reservation r){
+//    String requete = "INSERT INTO Reservation (nom,prenom,cin_membre,date_act,nb_place)" + "VALUES(?,?,?,?,?)";
+//        try {
+//            PreparedStatement pst = DataSource.getInstance().getCnx().prepareStatement(requete);          
+//            pst.setString(1, r.getNom());
+//            pst.setString(2, r.getPrenom());
+//            pst.setInt(3, r.getCin_membre());
+//            pst.setDate(4,r.getDate_act());
+//            pst.setInt(5, r.getNb_place());
+//            pst.executeUpdate();
+//            System.out.println("Reservation ajoutee");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReservationCRUD.class.getName()).log(Level.SEVERE, null, ex);
+//        }   
+//}
     public void addreservationn (Reservation r){
     String requete = "INSERT INTO Reservation (nom,prenom,date_act,nb_place)" + "VALUES(?,?,?,?)";
         try {
@@ -84,15 +82,15 @@ public class ReservationCRUD implements Reservationinterface{
             Logger.getLogger(ReservationCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-    public int deleteReservation(int id_res) throws SQLException {
-        int i = 0;
-      
-            Statement ste = cn.createStatement();
-            String sql = "delete from Reservation where id_reservation=" + id_res;
-            i = ste.executeUpdate(sql);
-        
-        return i;
-    }
+//    public int deleteReservation(int id_res) throws SQLException {
+//        int i = 0;
+//      
+//            Statement ste = cn.createStatement();
+//            String sql = "delete from Reservation where id_reservation=" + id_res;
+//            i = ste.executeUpdate(sql);
+//        
+//        return i;
+//    }
     
 
     public void modifierreservation (Reservation r) {
@@ -134,10 +132,10 @@ public class ReservationCRUD implements Reservationinterface{
         }
         return ReservationList;
     }
-    public List<Reservation> listReservationbyiduser(int cin) {
+    public List<Reservation> listReservationbyiduser(String n,String p) {
         List<Reservation> ReservationList = new ArrayList<>();
         try {
-            String requete = "select * from Reservation where cin_membre ='%" + cin + "%'" ;
+            String requete = "select * from Reservation where nom ='%" + n + "%' and prenom = '%" + p + "%'" ;
             Statement ab = DataSource.getInstance().getCnx().createStatement();
            
             ResultSet rs = ab.executeQuery(requete);
@@ -449,6 +447,11 @@ public class ReservationCRUD implements Reservationinterface{
 
     @Override
     public void update(Reservation r) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addreservation(Reservation r) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

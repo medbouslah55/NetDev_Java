@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #fde3a7;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.hamza.AjouterpanierinterfaceController">
+    <stylesheets>
+        <URL value="@ajouterpanierinterface.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="142.0" layoutY="309.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" style="-fx-background-radius: 1em; -fx-background-color: #542ae8#542ae8;" text="Confirmer" textFill="#f2f2f2">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Label layoutX="121.0" layoutY="26.0" prefHeight="38.0" prefWidth="158.0" text="Ajouter un panier">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <Button fx:id="back" layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" textFill="#e8e8e8">
+         <graphic>
+            <MaterialDesignIconView fx:id="btnback" fill="#f8f4f4" glyphName="KEYBOARD_BACKSPACE" size="30" />
+         </graphic>
+      </Button>
+      <MaterialDesignIconView fill="#ebe7e7" glyphName="ARROW_RIGHT_BOLD_CIRCLE" layoutX="237.0" layoutY="337.0" size="20" />
+      <VBox layoutX="113.0" layoutY="87.0" prefHeight="200.0" prefWidth="189.0" spacing="20.0">
+         <children>
+            <TextField fx:id="tfnomact" promptText="Nom activite" style="-fx-background-radius: 1em;" />
+            <TextField fx:id="tfpri" promptText="Prix" style="-fx-background-radius: 1em;" />
+            <TextField fx:id="tfquantite" promptText="Quantite" style="-fx-background-radius: 1em;" />
+            <TextField fx:id="tftota" promptText="Total" style="-fx-background-radius: 1em;" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

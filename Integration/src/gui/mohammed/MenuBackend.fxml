@@ -28,8 +28,6 @@
       </AnchorPane>
       <AnchorPane layoutY="90.0" prefHeight="513.0" prefWidth="802.0" style="-fx-background-color: #fde3a7 #fde3a7;">
          <children>
-            <Button layoutX="370.0" layoutY="296.0" mnemonicParsing="false" onAction="#open_travail_hamza" text="hamza" />
-            <Button layoutX="648.0" layoutY="296.0" mnemonicParsing="false" onAction="#open_travail_firas" text="Firas" />
             <FontAwesomeIconView fill="#2d81ee" glyphName="USERS" layoutX="110.0" layoutY="134.0" onMouseClicked="#menu_utilisateur" size="50" text="" wrappingWidth="50.99998474121094" />
             <FontAwesomeIconView fill="RED" glyphName="HEARTBEAT" layoutX="380.0" layoutY="134.0" onMouseClicked="#open_travail_hssan" size="50" />
             <Label layoutX="367.0" layoutY="10.0" prefHeight="39.0" prefWidth="75.0" text="MENU">
@@ -43,6 +41,14 @@
             <Label layoutX="571.0" layoutY="162.0" text="Gestion des centres et activites" />
             <FontAwesomeIconView glyphName="CALENDAR" layoutX="112.0" layoutY="299.0" onMouseClicked="#open_travail_mahdi" size="50" />
             <Label layoutX="70.0" layoutY="327.0" text="Evenements et Status" />
+            <FontAwesomeIconView fill="#542ae8" glyphName="TASKS" layoutX="380.0" layoutY="298.0" onMousePressed="#open_travail_firas" size="50" />
+            <Label layoutX="320.0" layoutY="327.0" text="Gestion des Réclamations" />
+            <Label layoutX="348.0" layoutY="348.0" text=" et Abonnements" />
+            <ImageView fitHeight="107.0" fitWidth="142.0" layoutX="607.0" layoutY="241.0" onMouseClicked="#open_travail_hamza" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/reservation-icon-29771.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

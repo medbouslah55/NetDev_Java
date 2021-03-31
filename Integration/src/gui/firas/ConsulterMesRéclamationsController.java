@@ -64,20 +64,10 @@ public class ConsulterMesRéclamationsController implements Initializable {
     @FXML
     private TableColumn<Reclamation, String> coletat;
     @FXML
-    private Button btnetat;
-    @FXML
-    private Button btnactualiser;
-    @FXML
     private Button btnimprimer;
-    @FXML
     private JFXDatePicker tfdeb;
-    @FXML
     private JFXDatePicker tffin;
-    @FXML
-    private FontAwesomeIconView btnrech;
-    @FXML
     private ComboBox<String> typeRecherche;
-    @FXML
     private TextField RechercheTextField;
 
     ObservableList<String> listeTypeRecherche = FXCollections.observableArrayList("Tout", "Nom", "Prenom", "Email", "Type", "Status");
@@ -87,7 +77,6 @@ public class ConsulterMesRéclamationsController implements Initializable {
     private MaterialDesignIconView closeButton;
     @FXML
     private Button btnback;
-    @FXML
     private ComboBox<String> combotrie;
     
     User member = UserSession.getInstance().getLoggedUser();
@@ -100,10 +89,6 @@ public class ConsulterMesRéclamationsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         afficher();
-        typeRecherche.setItems(listeTypeRecherche);
-        typeRecherche.setValue("Tout");
-        combotrie.setItems(listeTrie);
-        combotrie.setValue("Tout");
     }
     
     public void afficher(){
@@ -124,7 +109,6 @@ public class ConsulterMesRéclamationsController implements Initializable {
         recTable.refresh();
         
     }
-    @FXML
     private void loadDate(ActionEvent event) {
         ObservableList<Reclamation> recList = FXCollections.observableArrayList();
         colnom.setCellValueFactory(new PropertyValueFactory<>("Nom_rec"));
@@ -145,7 +129,6 @@ public class ConsulterMesRéclamationsController implements Initializable {
         recTable.refresh();
     }
 
-    @FXML
     public void dateXY(ActionEvent e) {
         int cin = UserSession.getInstance().getLoggedUser().getCin();
         ObservableList<Reclamation> recList = FXCollections.observableArrayList();
@@ -179,7 +162,6 @@ public class ConsulterMesRéclamationsController implements Initializable {
         }
     }
 
-    @FXML
     private void list() {
         ReclamationCRUD rt = new ReclamationCRUD();
         int cin = UserSession.getInstance().getLoggedUser().getCin();
@@ -196,11 +178,10 @@ public class ConsulterMesRéclamationsController implements Initializable {
         stage.close();
     }
 
-    @FXML
     private void trierall() {
         ReclamationCRUD rt = new ReclamationCRUD();
         int cin = UserSession.getInstance().getLoggedUser().getCin();
-        List arr = rt.trierReclamationallUserX(cin,combotrie.getValue());
+        List arr = rt.trierreclamationDate();
         ObservableList obb = FXCollections.observableArrayList(arr);
         recTable.setItems(obb);
         notifSUCCESS("Les Réclamations sont triées selon " + combotrie.getValue());

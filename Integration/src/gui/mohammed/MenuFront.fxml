@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -28,8 +29,6 @@
       </AnchorPane>
       <AnchorPane layoutY="90.0" prefHeight="513.0" prefWidth="802.0" style="-fx-background-color: #fde3a7 #fde3a7;">
          <children>
-            <Button layoutX="370.0" layoutY="296.0" mnemonicParsing="false" onAction="#open_travail_hamza" text="hamza" />
-            <Button layoutX="648.0" layoutY="296.0" mnemonicParsing="false" onAction="#open_travail_firas" text="Firas" />
             <Label layoutX="365.0" layoutY="7.0" prefHeight="39.0" prefWidth="75.0" text="MENU">
                <font>
                   <Font size="24.0" />
@@ -43,6 +42,27 @@
             <Label layoutX="593.0" layoutY="154.0" text="Nos Centres et activité" />
             <FontAwesomeIconView glyphName="CALENDAR" layoutX="106.0" layoutY="293.0" onMouseClicked="#open_travail_mahdi" size="50" />
             <Label layoutX="59.0" layoutY="317.0" text="Evenements et Status" />
+            <Label layoutX="325.0" layoutY="315.0" text="Consulter Réclamations" />
+            <FontAwesomeIconView fill="#542ae8" glyphName="TASKS" layoutX="371.0" layoutY="293.0" onMousePressed="#open_travail_firas" size="50" />
+            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="87.0" layoutY="375.0" onMousePressed="#acheterabonnement">
+               <image>
+                  <Image url="@../../images/membership.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="58.0" layoutY="464.0" text="Achéter Abonnement" />
+            <Button fx:id="panier" layoutX="622.0" layoutY="405.0" mnemonicParsing="false" onAction="#openPanier" prefHeight="70.0" prefWidth="106.0" style="-fx-background-color: #0d00ff;" text="Panier" textFill="#f2efef">
+               <graphic>
+                  <MaterialDesignIconView fill="#f5f5f5" glyphName="SHOPPING" size="15" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="100.0" fitWidth="137.0" layoutX="605.0" layoutY="236.0" onMouseClicked="#open_travail_hamza" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/reservation-icon-29771.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -51,6 +52,7 @@
                                                       <Font name="Arial Black" size="26.0" />
                                                    </font>
                                                 </Label>
+                                                <FontAwesomeIconView fill="#4f77ee" glyphName="ARROW_LEFT" layoutX="748.0" layoutY="53.0" onMouseClicked="#back" size="25" text="" textAlignment="JUSTIFY" />
                                              </children>
                                           </AnchorPane>
                                           <TableView fx:id="tvevenement" layoutX="229.0" layoutY="158.0" prefHeight="402.0" prefWidth="547.0">
