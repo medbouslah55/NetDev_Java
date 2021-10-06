@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="483.0" prefWidth="1197.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pi.esprit.gui.InterfacepanierController">
+    <stylesheets>
+        <URL value="@interfacepanier.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tvpanier" layoutX="302.0" layoutY="197.0" prefHeight="197.0" prefWidth="524.0" style="-fx-border-color: #542ae8#542ae8;">
+        <columns>
+          <TableColumn fx:id="collnomact" prefWidth="134.00003051757812" sortable="false" text="Nom activite" />
+          <TableColumn fx:id="collprix" prefWidth="129.0" sortable="false" text="Prix" />
+            <TableColumn fx:id="collquantite" prefWidth="115.0" sortable="false" text="Quantite" />
+            <TableColumn fx:id="colltotal" prefWidth="143.0" sortable="false" text="Total" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnback" layoutX="923.0" layoutY="343.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Continuer vos achats" textFill="#f2eeee">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#8fd3cd" glyphName="CASH_MULTIPLE" size="20" />
+         </graphic></Button>
+      <Button fx:id="btncaisse" layoutX="923.0" layoutY="204.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Passer a la caisse" textFill="#eeeeee">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#8fd3cd" glyphName="CART_PLUS" size="20" text="" />
+         </graphic></Button>
+      <Button fx:id="btnsupprimer" layoutX="923.0" layoutY="271.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Supprimer" textFill="#f5f5f5">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#8fd3cd" glyphName="MINUS" size="20" />
+         </graphic></Button>
+      <Button fx:id="btnajouter" layoutX="923.0" layoutY="415.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Ajouter" textFill="#fff8f8">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#8fd3cd" glyphName="PLUS" size="20" />
+         </graphic></Button>
+      <Button fx:id="btnpdf" layoutX="765.0" layoutY="153.0" mnemonicParsing="false" onMousePressed="#PDF" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="PDF" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#f8f5f7" glyphName="FILE_PDF_BOX" size="20" />
+         </graphic></Button>
+      <Button fx:id="btnactualiser" layoutX="463.0" layoutY="156.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="25.0" prefWidth="37.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" textFill="#f5efef">
+         <graphic>
+            <MaterialDesignIconView fill="#e4dede" glyphName="REFRESH" size="20" />
+         </graphic>
+      </Button>
+      <TextField fx:id="tfrecherche" layoutX="301.0" layoutY="156.0" onKeyReleased="#list" prefHeight="28.0" prefWidth="149.0" promptText="Recherche par nom" style="-fx-background-radius: 1em;" />
+      <Pane layoutY="137.0" prefHeight="379.0" prefWidth="256.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;" />
+      <Pane layoutY="1.0" prefHeight="139.0" prefWidth="256.0" style="-fx-background-color: fabe58;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-19.0" layoutY="7.0" prefHeight="129.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="86.0" fitWidth="147.0">
+                     <image>
+                        <Image url="file:/C:/Users/HAMZA/Documents/NetBeansProjects/PI/image/Logo%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="144.0" text="MindSpace" textFill="#542ae8">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="255.0" prefHeight="139.0" prefWidth="952.0" style="-fx-background-color: #fde3a7; -fx-border-color: #542ae8; -fx-border-width: 0;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="305.0" layoutY="21.0" lineSpacing="2.0" prefHeight="86.0" prefWidth="301.0" text="Panier" textFill="#542ae8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <MaterialDesignIconView fx:id="closeButton" fill="#542ae8" glyphName="CLOSE_BOX" layoutX="881.0" layoutY="43.0" onMouseClicked="#close" size="30" />
+         </children>
+      </Pane>
+      <Button fx:id="btnprint" layoutX="681.0" layoutY="153.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="34.0" prefWidth="50.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#e8e3e3" glyphName="PRINTER" size="20" />
+         </graphic>
+      </Button>
+      <Label layoutX="449.0" layoutY="432.0" text="Total a payer (DT) :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="total" layoutX="631.0" layoutY="432.0" prefHeight="30.0" prefWidth="97.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnvider" layoutX="771.0" layoutY="431.0" mnemonicParsing="false" onAction="#supprimertoutpanier" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #542ae8#542ae8; -fx-background-radius: 1em;" text="Vider panier" textFill="#f5eeee">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
